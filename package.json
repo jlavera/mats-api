@@ -1,0 +1,61 @@
+{
+  "name": "mats-api",
+  "version": "0.0.1",
+  "main": "mats-api.js",
+  "private": true,
+  "scripts": {
+    "build": "sh ./tasks/build.sh",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "start": "babel-node .",
+    "start:watch": "babel-watch .",
+    "test": "export NODE_ENV=test && npm run lint && babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- --recursive",
+    "test:app": "export NODE_ENV=test && babel-node ./node_modules/.bin/_mocha --recursive",
+    "preversion": "npm test && npm shrinkwrap",
+    "postversion": "git push origin HEAD && git push origin $(git describe --tags)"
+  },
+  "dependencies": {
+    "bluebird": "~3.4.0",
+    "body-parser": "~1.13.3",
+    "config": "~1.16.0",
+    "dependable": "~0.2.5",
+    "express": "~4.13.3",
+    "expressify": "~0.1.0",
+    "http-errors": "~1.5.0",
+    "lodash": "~4.12.0",
+    "morgan": "~1.7.0",
+    "neo4j-driver": "^1.0.4",
+    "newrelic": "~1.28.0",
+    "osprey": "~0.3.2",
+    "semver": "~5.0.3",
+    "winston": "~2.2.0",
+    "winston-syslog": "~1.1.2"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.9.0",
+    "babel-core": "~6.9.0",
+    "babel-eslint": "~6.0.4",
+    "babel-istanbul": "~0.8.0",
+    "babel-plugin-transform-strict-mode": "~6.8.0",
+    "babel-preset-es2015": "~6.9.0",
+    "babel-watch": "~2.0.2",
+    "chai": "~3.4.1",
+    "chai-as-promised": "~5.1.0",
+    "coveralls": "~2.11.9",
+    "eslint": "~2.12.0",
+    "eslint-config-airbnb-base": "~3.0.1",
+    "eslint-plugin-import": "~1.9.2",
+    "faker": "~3.1.0",
+    "git-rev-cli": "~0.1.0",
+    "mocha": "~2.2.5",
+    "nock": "~8.0.0",
+    "sinon": "~1.17.2",
+    "sinon-as-promised": "~4.0.0",
+    "sinon-chai": "~2.8.0",
+    "supertest": "~1.1.0"
+  },
+  "engines": {
+    "node": "4.4.0",
+    "npm": "2.1.6"
+  }
+}

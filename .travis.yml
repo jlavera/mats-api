@@ -1,0 +1,31 @@
+sudo: false
+language: node_js
+node_js:
+  - 4.4
+addons:
+ apt:
+   sources:
+     - ubuntu-toolchain-r-test
+   packages:
+     - g++-4.8
+before_install:
+  - npm install -g npm@2
+env:
+ global:
+   - CXX=g++-4.8
+after_script:
+- cat ./coverage/lcov/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+before_deploy:
+- npm run build
+deploy:
+  - provider: s3
+    access_key_id: <INSERT_ACCESS_KEY>
+    secret_access_key: <INSERT_SECREY_KEY>
+    bucket: jenkins-artifacts
+    upload-dir: mats-api
+    local-dir: artifact
+    acl: public_read
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true

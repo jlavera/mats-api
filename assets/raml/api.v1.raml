@@ -1,0 +1,175 @@
+#%RAML 0.8
+title:     mats-api
+version:   0.1
+mediaType: application/json
+
+/status:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "up"
+              }
+
+# Información de sólo lectura con las configuraciones de las carreras
+/careers:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            description: Lista de carreras
+            example: |
+              [{
+                "name": "Sistemas",
+                "code": "K"
+              }, {
+                "name": "Química",
+                "code": "Q"
+              }]
+
+  /{careerCode}:
+    uriParameters:
+      careerCode:
+        type:        string
+        required:    true
+        description: Código de la carrera
+        maxLength:   1
+
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "name": "Sistemas",
+                  "code": "K"
+                }
+
+    /courses:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  [{
+                    "name": "Algoritmos",
+                    "code": "082021",
+                    "year": "1"
+                  }, {
+                    "name": "Diseño de sistemas",
+                    "code": "082028",
+                    "year": "3"
+                  }]
+
+      /{courseCode}:
+        uriParameters:
+          courseCode:
+            type:        string
+            required:    true
+            description: Código de la materia
+
+        get:
+          responses:
+            200:
+              body:
+                application/json:
+                  example: |
+                    {
+                      "name": "Diseño de sistemas",
+                      "code": "082028",
+                      "year": "3"
+                    }
+
+        /inDependencies:
+          get:
+            responses:
+              200:
+                body:
+                  application/json:
+                    description: Lista de materias que la bloquean
+
+        /outDependencies:
+          get:
+            responses:
+              200:
+                body:
+                  application/json:
+                    description: Lista de materias que desbloquea
+
+/users:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            description: Lista de usuarios existentes
+            example:     |
+              [{
+                "username": "user1"
+              }, {
+                "username": "user2"
+              }]
+
+  /{username}:
+    uriParameters:
+      username:
+        type:       string
+        required:   true
+        description: Nombre de usuario
+
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "username": "user1"
+                }
+
+    put:
+      body:
+        application/json:
+          schema: |
+            {
+              "type":       "object",
+              "$schema":    "http://json-schema.org/draft-03/schema",
+              "id":         "http://jsonschema.net",
+              "required":   true,
+              "properties": {
+                "password":   {
+                  "type":     "string",
+                  "required": true
+                },
+                "email":      {
+                  "type":     "string",
+                  "required": false
+                }
+              }
+            }
+      responses:
+        200:
+          description: En caso de actualización correcta
+        201:
+          description: En caso de creación correcta
+        409:
+          description: En caso de colisión de nombres de usuario
+
+    delete:
+      responses:
+        200:
+          description: En caso de eliminación correcta
+
+    /courses:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                description: Lista de materias aprobadas o firmadas
