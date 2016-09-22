@@ -1,0 +1,28 @@
+[{
+  "name": "Ingeniería en sistemas",
+  "code": "K"
+}, {
+  "name": "Ingeniería química",
+  "code": "Q"
+}, {
+  "name": "Ingeniería industrial",
+  "code": "I"
+}, {
+  "name": "Ingeniería eléctrica",
+  "code": "E"
+}, {
+  "name": "Ingeniería mecánica",
+  "code": "M"
+}, {
+  "name": "Ingeniería naval",
+  "code": "N"
+}, {
+  "name": "Ingeniería textil",
+  "code": "T"
+}, {
+  "name": "Ingeniería electrónica",
+  "code": "O"
+}, {
+  "name": "Ingeniería civil",
+  "code": "C"
+}]

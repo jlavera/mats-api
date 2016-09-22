@@ -7,6 +7,7 @@
     "build": "sh ./tasks/build.sh",
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
+    "seed": "babel-node scripts/seed",
     "start": "babel-node .",
     "start:watch": "babel-watch .",
     "test": "export NODE_ENV=test && npm run lint && babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- --recursive",

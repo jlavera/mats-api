@@ -1,0 +1,54 @@
+[{
+  "code":    "081420",
+  "name":    "Química",
+  "presentIn": [{
+    "careerCode": "K",
+    "hours":      6,
+    "year":       1,
+    "duration":   "C",
+    "optative":   false,
+    "main":       false
+  }],
+  "dependsOn": []
+}, {
+  "code":    "081421",
+  "name":    "Física 1",
+  "presentIn": [{
+    "careerCode": "K",
+    "hours":      6,
+    "year":       1,
+    "duration":   "C",
+    "optative":   false,
+    "main":       false
+  }, {
+    "careerCode": "I",
+    "hours":      12,
+    "year":       2,
+    "duration":   "A",
+    "optative":   true,
+    "main":       true
+  }],
+  "dependsOn": []
+}, {
+  "code":    "081422",
+  "name":    "Física 2",
+  "presentIn": [{
+    "careerCode": "K",
+    "hours":      6,
+    "year":       1,
+    "duration":   "C",
+    "optative":   false,
+    "main":       false
+  }, {
+    "careerCode": "I",
+    "hours":      12,
+    "year":       2,
+    "duration":   "A",
+    "optative":   true,
+    "main":       true
+  }],
+  "dependsOn": [
+    "081420",
+    "081421"
+  ]
+}]
