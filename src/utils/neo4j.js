@@ -1,3 +1,4 @@
+import _           from 'lodash';
 import neo4jDriver from 'neo4j-driver';
 
 module.exports = function neo4j(
@@ -16,16 +17,25 @@ module.exports = function neo4j(
     runMultiple
   });
 
+  function mergeProperties(record) {
+    return _.merge.apply(this, _.map(record._fields, 'properties'))
+  }
+
   function runSingle(query, params) {
     return run(query, params)
-      // .then(a => {console.log(JSON.stringify(a, null, 2)); return a;})
-      .then(result => result.records.length ? result.records[0]._fields[0].properties : undefined)
+      .then(result => {
+        if (result.records.length) {
+          return mergeProperties(result.records[0]);
+        }
+
+        return undefined;
+      })
     ;
   }
 
   function runMultiple(query, params) {
     return run(query, params)
-      .then(result => result.records.map(record => record._fields[0].properties))
+      .then(result => result.records.map(mergeProperties))
     ;
   }
 

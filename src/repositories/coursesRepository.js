@@ -22,17 +22,7 @@ module.exports = function coursesRepository(
   function get(careerCode, courseCode) {
     return neo4j.runSingle(`
       MATCH (course: Course {code: {courseCode}})-[presentIn :PRESENT_IN]->(career: Career {code: {careerCode}})
-      RETURN course;`,
-      // TODO
-      // RETURN {
-      //   name: course.name,
-      //   code: course.code,
-      //   hours: presentIn.hours,
-      //   year: presentIn.year,
-      //   duration: presentIn.duration,
-      //   optative: presentIn.optative,
-      //   main: presentIn.main
-      // }`,
+      RETURN course, presentIn;`,
       {careerCode: careerCode, courseCode: courseCode}
     );
   }
@@ -44,8 +34,8 @@ module.exports = function coursesRepository(
    */
   function getAllByCareer(careerCode) {
     return neo4j.runMultiple(`
-      MATCH (course: Course)-[:PRESENT_IN]->(career: Career {code: {careerCode}})
-      RETURN course`,
+      MATCH (course: Course)-[presentIn :PRESENT_IN]->(career: Career {code: {careerCode}})
+      RETURN course, presentIn`,
       {careerCode: careerCode}
     );
   }
