@@ -21,7 +21,15 @@ module.exports = function coursesService(
    * @returns {Promise}
    */
   function get(context, careerCode, courseCode) {
-    return coursesRepository.get(careerCode, courseCode);
+    return coursesRepository.get(careerCode, courseCode)
+      .then(course => {
+        if (!course) {
+          return Promise.reject(new errors.NotFound('Materia'));
+        }
+
+        return course;
+      })
+    ;
   }
 
   /**
