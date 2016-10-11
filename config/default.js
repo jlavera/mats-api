@@ -39,7 +39,7 @@ module.exports = {
   },
 
   neo4j: {
-    uri: 'bolt://hobby-lgfhfaeefcomgbkeafoejnnl.dbs.graphenedb.com:24786',
+    uri:      'bolt://hobby-lgfhfaeefcomgbkeafoejnnl.dbs.graphenedb.com:24786',
     username: 'careersdb',
     password: 'CsIrxOv1MXT2DLmVxde8'
   },
