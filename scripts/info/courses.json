@@ -1,54 +1,626 @@
-[{
-  "code":    "081420",
-  "name":    "Química",
-  "presentIn": [{
-    "careerCode": "K",
-    "hours":      6,
-    "year":       1,
-    "duration":   "C",
-    "optative":   false,
-    "main":       false
-  }],
-  "dependsOn": []
-}, {
-  "code":    "081421",
-  "name":    "Física 1",
-  "presentIn": [{
-    "careerCode": "K",
-    "hours":      6,
-    "year":       1,
-    "duration":   "C",
-    "optative":   false,
-    "main":       false
-  }, {
-    "careerCode": "I",
-    "hours":      12,
-    "year":       2,
-    "duration":   "A",
-    "optative":   true,
-    "main":       true
-  }],
-  "dependsOn": []
-}, {
-  "code":    "081422",
-  "name":    "Física 2",
-  "presentIn": [{
-    "careerCode": "K",
-    "hours":      6,
-    "year":       1,
-    "duration":   "C",
-    "optative":   false,
-    "main":       false
-  }, {
-    "careerCode": "I",
-    "hours":      12,
-    "year":       2,
-    "duration":   "A",
-    "optative":   true,
-    "main":       true
-  }],
-  "dependsOn": [
-    "081420",
-    "081421"
-  ]
-}]
+[
+  {
+    "code": "082038",
+    "name": "Ingeniería de Software",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "4",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+    ]
+  },
+  {
+    "code": "951601",
+    "name": "Sistemas de Representación",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "3",
+        "year": "2",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "950704",
+    "name": "Probabilidad y Estadística",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "2",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+      "950701",
+      "950702"
+    ]
+  },
+  {
+    "code": "081420",
+    "name": "Química",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "1",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "950309",
+    "name": "Economía",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "3",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082039",
+    "name": "Administración Gerencial",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "5",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082028",
+    "name": "Diseño de Sistemas",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "3",
+        "duration": "A",
+        "optative": false,
+        "main": true
+      }
+    ],
+    "dependsOn": [
+      
+    ]
+  },
+  {
+    "code": "082040",
+    "name": "Inteligencia Artificial",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "5",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082027",
+    "name": "Sistemas Operativos",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "3",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "951602",
+    "name": "Inglés 1",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "2",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082033",
+    "name": "Administración de Recursos",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "4",
+        "duration": "A",
+        "optative": false,
+        "main": true
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "123123",
+    "name": "Nidiea",
+    "presentIn": [
+      {
+        "careerCode": "Q",
+        "hours": "3",
+        "year": "1",
+        "duration": "A",
+        "optative": true,
+        "main": false
+      },
+      {
+        "careerCode": "K",
+        "hours": "3",
+        "year": "2",
+        "duration": "C",
+        "optative": false,
+        "main": true
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "950310",
+    "name": "Legislación",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "3",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082037",
+    "name": "Proyecto Final",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "5",
+        "duration": "A",
+        "optative": false,
+        "main": true
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082030",
+    "name": "Gestión de Datos",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "3",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082026",
+    "name": "Paradigmas de Programación",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "2",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+      "082020",
+      "082021"
+    ]
+  },
+  {
+    "code": "082041",
+    "name": "Simulación",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "4",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082022",
+    "name": "Arquitectura de Computadoras",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "1",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "950702",
+    "name": "Álgebra y Geometría Analítica",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "5",
+        "year": "1",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082031",
+    "name": "Redes de Información",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "4",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082036",
+    "name": "Teoría de Control",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "4",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "950605",
+    "name": "Física 1",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "5",
+        "year": "2",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082034",
+    "name": "Investigación Operativa",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "10",
+        "year": "4",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082024",
+    "name": "Análisis de Sistemas",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "2",
+        "duration": "A",
+        "optative": false,
+        "main": true
+      }
+    ],
+    "dependsOn": [
+      "082023",
+      "082021"
+    ]
+  },
+  {
+    "code": "082023",
+    "name": "Sistemas y Organizaciones",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "3",
+        "year": "1",
+        "duration": "A",
+        "optative": false,
+        "main": true
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082025",
+    "name": "Sintaxis y Semántica de los Lenguajes",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "2",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+      "082020",
+      "082021"
+    ]
+  },
+  {
+    "code": "082035",
+    "name": "Sistemas de Gestión",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "5",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "951603",
+    "name": "Inglés 2",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "3",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "095070",
+    "name": "Análisis Matemático 1",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "5",
+        "year": "1",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "951604",
+    "name": "Ingeniería y Sociedad",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "1",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082020",
+    "name": "Matemática Discreta",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "3",
+        "year": "1",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082021",
+    "name": "Algoritmos y Estructura de Datos",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "5",
+        "year": "1",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "950703",
+    "name": "Análisis Matemático 2",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "5",
+        "year": "2",
+        "duration": "A",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+      "950702",
+      "950701"
+    ]
+  },
+  {
+    "code": "950606",
+    "name": "Física 2",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "10",
+        "year": "3",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082029",
+    "name": "Comunicaciones",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "4",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  },
+  {
+    "code": "082032",
+    "name": "Matemática Superior",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "8",
+        "year": "3",
+        "duration": "C",
+        "optative": false,
+        "main": false
+      }
+    ],
+    "dependsOn": [
+
+    ]
+  }
+]

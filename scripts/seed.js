@@ -81,3 +81,22 @@ Promise.resolve()
     process.exit(1);
   })
 ;
+
+// 
+// %dw 1.0
+// %input payload application/csv
+// %output application/json
+// ---
+// payload groupBy $.codigo map {
+//   code: $.codigo[0],
+//   name: $.name[0],
+//   presentIn: $ groupBy $.career pluck {
+//     careerCode: $$,
+//     hours: $.horas[0],
+//     year: $.year[0],
+//     duration: $.duration[0],
+//     optative: $.optative[0] == "1",
+//     main: $.main[0] == "1"
+//   },
+//   dependsOn: []
+// }
