@@ -47,9 +47,9 @@ module.exports = function coursesRepository(
    */
   function getInDependencies(careerCode, courseCode) {
     return neo4j.runMultiple(`
-      MATCH (course1: Course {code: {courseCode} })-[:DEPENDS_ON]->(course2: Course)
+      MATCH (course1: Course {code: {courseCode} })-[dependency:DEPENDS_ON]->(course2: Course)
       MATCH (course2: Course)-[:PRESENT_IN]->(career: Career {code: {careerCode} })
-      RETURN course2`,
+      RETURN course2, dependency`,
       {careerCode: careerCode, courseCode: courseCode}
     );
   }
@@ -61,9 +61,9 @@ module.exports = function coursesRepository(
    */
   function getOutDependencies(careerCode, courseCode) {
     return neo4j.runMultiple(`
-      MATCH (course1: Course {code: {courseCode} })<-[:DEPENDS_ON]-(course2: Course)
+      MATCH (course1: Course {code: {courseCode} })<-[dependency:DEPENDS_ON]-(course2: Course)
       MATCH (course2: Course)-[:PRESENT_IN]->(career: Career {code: {careerCode} })
-      RETURN course2`,
+      RETURN course2, dependency`,
       {careerCode: careerCode, courseCode: courseCode}
     );
   }

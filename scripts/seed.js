@@ -60,7 +60,6 @@ Promise.resolve()
 
     // and their dependencies
     .return(course.dependsOn.signed)
-    .tap(console.log)
     .map(dependenceCode => neo4j.run(`
       MATCH (course1: Course { code: {courseCode1}})
       MATCH (course2: Course { code: {courseCode2}})
@@ -74,7 +73,6 @@ Promise.resolve()
     }))
 
     .return(course.dependsOn.approved)
-    .tap(console.log)
     .map(dependenceCode => neo4j.run(`
       MATCH (course1: Course { code: {courseCode1}})
       MATCH (course2: Course { code: {courseCode2}})
