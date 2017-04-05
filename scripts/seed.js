@@ -2,13 +2,14 @@
 
 'use strict';
 
-var _         = require('lodash');
-var Promise   = require('bluebird');
-var container = require('../src/containerFactory').createContainer();
-var neo4j     = container.get('neo4j');
+const _         = require('lodash');
+const Promise   = require('bluebird');
+const container = require('../src/containerFactory').createContainer();
+const neo4j     = container.get('neo4j');
 
-var careers   = require('./info/careers');
-var courses   = require('./info/courses');
+const careers   = require('./info/careers');
+const courses   = require('./info/courses');
+const users     = require('./info/users');
 
 Promise.resolve()
 
@@ -86,6 +87,11 @@ Promise.resolve()
     }))
   )
   .then(() => console.log(`Done ${courses.length} courses.`))
+
+  // Insert some users
+  .return(users)
+  .map(user => neo4j.run("CREATE (user:User {username: {username}, password: {password}})", user))
+  .then(() => console.log(`Done ${users.length} users.`))
 
   .then(() => {
     console.log('OK');

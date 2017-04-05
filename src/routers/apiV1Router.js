@@ -6,7 +6,8 @@ module.exports = function apiV1Router(
 
   careersController,
   coursesController,
-  statusController
+  statusController,
+  usersController
 ) {
   // eslint-disable-next-line new-cap
   return express.Router().use(config.apis.v1.baseUri, express.Router()
@@ -32,6 +33,7 @@ module.exports = function apiV1Router(
     // Status endpoint
     .get('/status', statusController.get)
 
+    // Static endpoints
     .get('/careers',                                                 careersController.getAll)
     .get('/careers/:careerCode',                                     careersController.get)
     .get('/careers/:careerCode/courses',                             coursesController.getAllByCareer)
@@ -41,6 +43,12 @@ module.exports = function apiV1Router(
 
     .get('/careers/:careerCode/tree',        careersController.getTree)
     .get('/careers/:careerCode/reverseTree', careersController.getReverseTree)
+
+    // Users endpoints
+    .get(   '/users',                   usersController.getAll)
+    .get(   '/users/:username',         usersController.get)
+    .put(   '/users/:username',         usersController.createUser)
+    .delete('/users/:username',         usersController.del)
   );
 };
 

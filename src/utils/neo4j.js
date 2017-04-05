@@ -1,5 +1,5 @@
-import _           from 'lodash';
 import bluebird    from 'bluebird';
+import _           from 'lodash';
 import neo4jDriver from 'neo4j-driver';
 
 module.exports = function neo4j(
@@ -14,6 +14,7 @@ module.exports = function neo4j(
 
   return ({
     run,
+    runEmpty,
     runSingle,
     runMultiple
   });
@@ -22,15 +23,23 @@ module.exports = function neo4j(
     return _.merge.apply(this, _.map(record._fields, 'properties'));
   }
 
-  function runSingle(query, params) {
+  function runEmpty(query, params) {
+    return run(query, params)
+      .then(bluebird.resolve)
+      .return(undefined)
+    ;
+  }
+
+  function runSingle(query, params, mapper) {
     return run(query, params)
       .then(result => {
         if (result.records.length) {
-          return mergeProperties(result.records[0]);
+          return (mapper ? mapper : mergeProperties)(result.records[0]);
         }
 
         return undefined;
       })
+      .then(bluebird.resolve)
     ;
   }
 
