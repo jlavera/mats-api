@@ -7,7 +7,8 @@ module.exports = function careersController(
 ) {
   return expressify({
     get,
-    getAll
+    getAll,
+    getTree
   });
 
   // ---
@@ -19,7 +20,8 @@ module.exports = function careersController(
    */
   function get(req, res) {
     return careersService.get(req.context, '' + req.params.careerCode)
-      .then(response => res.json(response));
+      .then(response => res.json(response))
+    ;
   }
 
   /**
@@ -29,6 +31,18 @@ module.exports = function careersController(
    */
   function getAll(req, res) {
     return careersService.getAll(req.context)
-      .then(response => res.json(response));
+      .then(response => res.json(response))
+    ;
+  }
+
+  /**
+   * Retrieves dependency tree of the career.
+   *
+   * @returns {Promise}
+   */
+  function getTree(req, res) {
+    return careersService.getTree(req.context, '' + req.params.careerCode)
+      .then(response => res.json(response))
+    ;
   }
 };

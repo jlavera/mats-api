@@ -38,6 +38,8 @@ module.exports = function apiV1Router(
     .get('/careers/:careerCode/courses/:courseCode',                 coursesController.get)
     .get('/careers/:careerCode/courses/:courseCode/inDependencies',  coursesController.getInDependencies)
     .get('/careers/:careerCode/courses/:courseCode/outDependencies', coursesController.getOutDependencies)
+
+    .get('/careers/:careerCode/tree', careersController.getTree)
   );
 };
 

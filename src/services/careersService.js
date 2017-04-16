@@ -9,7 +9,8 @@ module.exports = function careersService(
 
   return {
     get,
-    getAll
+    getAll,
+    getTree
   };
 
   // ---
@@ -38,5 +39,14 @@ module.exports = function careersService(
    */
   function getAll(context) {
     return careersRepository.getAll();
+  }
+
+  /**
+   * Retrieves the dependency tree of a career
+   *
+   * @returns {Promise}
+   */
+  function getTree(context, careerCode) {
+    return careersRepository.getTree(careerCode);
   }
 };
