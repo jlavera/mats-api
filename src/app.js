@@ -17,6 +17,8 @@ module.exports = function $app(
 
   // ---
 
+  app.use('/public', express.static('public'))
+
   app.use(apiV1Router);
 
   // ---
