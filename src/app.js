@@ -1,5 +1,7 @@
-import express from 'express';
+import express    from 'express';
 import bodyParser from 'body-parser';
+import favicon    from 'serve-favicon';
+
 
 module.exports = function $app(
   apiV1Router,
@@ -18,6 +20,8 @@ module.exports = function $app(
   // ---
 
   app.use('/public', express.static('public'))
+
+  app.use(favicon(`${__dirname}/../public/images/fav.png`));
 
   app.use(apiV1Router);
 
