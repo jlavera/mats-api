@@ -9,6 +9,7 @@ module.exports = function careersRepository(
   return {
     get,
     getAll,
+    getReverseTree,
     getTree
   };
 
@@ -30,6 +31,22 @@ module.exports = function careersRepository(
    */
   function getAll() {
     return neo4j.runMultiple('MATCH (career:Career) RETURN career');
+  }
+
+  /**
+   * Get
+   *
+   * @returns {Promise}
+   */
+  function getReverseTree(code) {
+    return neo4j.runMultiple(`
+      MATCH
+      	(c1:Course)-[:PRESENT_IN]->(Career {code: {code}}),
+      	(c2)-[d:DEPENDS_ON]->(c1)
+      RETURN c1.code as code, collect({type: d.requirement, code: c2.code}) as dependents;`,
+      {code: code},
+      item => _.zipObject(item.keys, item._fields)
+    );
   }
 
   /**

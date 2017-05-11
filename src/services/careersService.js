@@ -6,10 +6,10 @@ import errors   from 'http-errors';
 module.exports = function careersService(
   careersRepository
 ) {
-
   return {
     get,
     getAll,
+    getReverseTree,
     getTree
   };
 
@@ -39,6 +39,15 @@ module.exports = function careersService(
    */
   function getAll(context) {
     return careersRepository.getAll();
+  }
+
+  /**
+   * Retrieves the reversed dependency tree of a career
+   *
+   * @returns {Promise}
+   */
+  function getReverseTree(context, careerCode) {
+    return careersRepository.getReverseTree(careerCode);
   }
 
   /**
