@@ -17,6 +17,8 @@ function createContainer() {
 
   entries.forEach(entry => container.load(path.join(__dirname, entry)));
 
+  container.register('container', container);
+
   return container;
 }
 

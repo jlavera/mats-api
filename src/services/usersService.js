@@ -5,6 +5,7 @@ import errors   from 'http-errors';
 // ---
 
 module.exports = function usersService(
+  container,
   hashingService,
   usersRepository
 ) {
@@ -35,8 +36,11 @@ module.exports = function usersService(
 
         return hashingService.hash(password);
       })
-      .then(hashedPassword => {
+      .tap(hashedPassword => {
         return usersRepository.createUser(username, hashedPassword);
+      })
+      .then(() => {
+        return container.get('authenticationService').createToken(context, username, password);
       })
     ;
   }

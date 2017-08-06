@@ -21,7 +21,7 @@ module.exports = function usersController(
    */
   function createUser(req, res) {
     return usersService.createUser(req.context, '' + req.params.username, '' + req.body.password)
-      .then(() => res.status(204).json())
+      .then(response => res.status(201).json(response))
     ;
   }
 
