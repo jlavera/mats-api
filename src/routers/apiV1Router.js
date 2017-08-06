@@ -2,8 +2,10 @@ import express from 'express';
 
 module.exports = function apiV1Router(
   config,
+  authorizationMiddleware,
   ospreyMiddleware,
 
+  authenticationController,
   careersController,
   coursesController,
   statusController,
@@ -33,6 +35,9 @@ module.exports = function apiV1Router(
     // Status endpoint
     .get('/status', statusController.get)
 
+    // Auth endpoint
+    .post('/auth', authenticationController.createToken)
+
     // Static endpoints
     .get('/careers',                                                 careersController.getAll)
     .get('/careers/:careerCode',                                     careersController.get)
@@ -45,10 +50,10 @@ module.exports = function apiV1Router(
     .get('/careers/:careerCode/reverseTree', careersController.getReverseTree)
 
     // Users endpoints
-    .get(   '/users',                   usersController.getAll)
-    .get(   '/users/:username',         usersController.get)
-    .put(   '/users/:username',         usersController.createUser)
-    .delete('/users/:username',         usersController.del)
+    .get(   '/users',           authorizationMiddleware.onlyAdmin, usersController.getAll)
+    .get(   '/users/:username', authorizationMiddleware.onlyUser,  usersController.get)
+    .put(   '/users/:username',                                    usersController.createUser)
+    .delete('/users/:username', authorizationMiddleware.onlyUser,  usersController.del)
   );
 };
 

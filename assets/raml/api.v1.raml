@@ -14,6 +14,49 @@ mediaType: application/json
                 "status": "up"
               }
 
+/auth:
+  post:
+    body:
+      example: |
+        {
+          "username": "user",
+          "password": "pass"
+        }
+      schema: |
+        {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "username",
+            "password"
+          ]
+        }
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {
+                "bearer": "123-123-123"
+              }
+      404:
+        body:
+          application/json:
+            example: |
+              {
+                "name": "NotFoundError",
+                "status": 404,
+                "message": "User and password combination"
+              }
+
 # Información de sólo lectura con las configuraciones de las carreras
 /careers:
   get:

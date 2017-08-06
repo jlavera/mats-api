@@ -1,9 +1,11 @@
+import _        from 'lodash';
 import bluebird from 'bluebird';
 import errors   from 'http-errors';
 
 // ---
 
 module.exports = function usersService(
+  hashingService,
   usersRepository
 ) {
   return {
@@ -27,11 +29,14 @@ module.exports = function usersService(
 
     return usersRepository.get(username)
       .then(user => {
-        if (user) {
+        if (!_.isEmpty(user)) {
           return bluebird.reject(new errors.Conflict('El nombre de usuario está tomado.'));
         }
 
-        return usersRepository.createUser(username, password);
+        return hashingService.hash(password);
+      })
+      .then(hashedPassword => {
+        return usersRepository.createUser(username, hashedPassword);
       })
     ;
   }
@@ -50,8 +55,8 @@ module.exports = function usersService(
    *
    * @returns {Promise}
    */
-  function get(context, username) {
-    return usersRepository.get(username)
+  function get(context, username, withPassword) {
+    return usersRepository.get(username, withPassword)
       .then(user => {
         if (!user) {
           return bluebird.reject(new errors.NotFound('Usuario'));

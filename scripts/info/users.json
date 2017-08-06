@@ -1,10 +1,17 @@
 [{
   "username": "joa",
-  "password": "123"
+  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
+  "role":     "ADMIN"
 }, {
   "username": "juan",
-  "password": "123"
+  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
+  "role":     "USER"
+}, {
+  "username": "pablito",
+  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
+  "role":     "USER"
 }, {
   "username": "leo",
-  "password": "123"
+  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
+  "role":     "ADMIN"
 }]

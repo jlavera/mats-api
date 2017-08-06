@@ -49,5 +49,11 @@ module.exports = {
     enabled:      _.get(process.env, 'NEW_RELIC_ENABLED', false),
     licenseKey:   _.get(process.env, 'NEW_RELIC_LICENSE_KEY'),
     noConfigFile: _.get(process.env, 'NEW_RELIC_NO_CONFIG_FILE', true)
+  },
+
+  auth: {
+    secret:     '',
+    expiresIn:  36000,
+    saltRounds: 10
   }
 };

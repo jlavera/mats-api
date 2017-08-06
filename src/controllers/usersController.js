@@ -21,7 +21,7 @@ module.exports = function usersController(
    */
   function createUser(req, res) {
     return usersService.createUser(req.context, '' + req.params.username, '' + req.body.password)
-      .then(response => res.json(response))
+      .then(() => res.status(204).json())
     ;
   }
 
@@ -32,7 +32,7 @@ module.exports = function usersController(
    */
   function del(req, res) {
     return usersService.del(req.context, '' + req.params.username)
-      .then(() => res.status(204))
+      .then(() => res.status(204).json())
     ;
   }
 
@@ -42,7 +42,7 @@ module.exports = function usersController(
    * @returns {Promise}
    */
   function get(req, res) {
-    return usersService.get(req.context, '' + req.params.username)
+    return usersService.get(req.context, '' + req.params.username, false)
       .then(response => res.json(response))
     ;
   }

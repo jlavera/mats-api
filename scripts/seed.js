@@ -90,7 +90,7 @@ Promise.resolve()
 
   // Insert some users
   .return(users)
-  .map(user => neo4j.run("CREATE (user:User {username: {username}, password: {password}})", user))
+  .map(user => neo4j.run("CREATE (user:User {username: {username}, password: {password}, role: {role}})", user))
   .then(() => console.log(`Done ${users.length} users.`))
 
   .then(() => {

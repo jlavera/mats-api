@@ -21,7 +21,10 @@ module.exports = function usersRepository(
    * @returns {Promise}
    */
   function createUser(username, password) {
-    return neo4j.runEmpty('CREATE (user:User {username: {username}, password: {password}})', {username: username, password: password});
+    return neo4j.runEmpty(
+      'CREATE (user:User {username: {username}, password: {password}, role: "USER"})',
+      {username: username, password: password}
+    );
   }
 
   /**
@@ -38,12 +41,13 @@ module.exports = function usersRepository(
    *
    * @returns {Promise}
    */
-  function get(username) {
+  function get(username, withPassword) {
     return neo4j.runSingle(
-      'MATCH (user:User {username: {username}}) RETURN user.username as username',
-      {username: username},
-      item => _.zipObject(item.keys, item._fields)
-    );
+      'MATCH (user:User {username: {username}}) RETURN user',
+      {username: username}
+    )
+      .then(user => withPassword ? user : _.omit(user, 'password'))
+    ;
   }
 
   /**
@@ -53,9 +57,10 @@ module.exports = function usersRepository(
    */
   function getAll() {
     return neo4j.runMultiple(
-      'MATCH (user:User) RETURN user.username as username',
-      {},
-      item => _.zipObject(item.keys, item._fields)
-    );
+      'MATCH (user:User) RETURN user',
+      {}
+    )
+      .map(user => _.omit(user, 'password'))
+    ;
   }
 };
