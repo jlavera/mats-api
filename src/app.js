@@ -27,10 +27,9 @@ module.exports = function $app(
 
   app.use(express.static(path.resolve(__dirname + '/../dist')));
 
-  app.use(express.static(path.resolve('/../public')));
+  // app.use(express.static(path.resolve('/../public')));
 
   app.get('/', function(request, response) {
-    path.resolve
     response.sendFile(path.resolve(__dirname + '/../dist/index.html'))
   });
 
@@ -41,7 +40,7 @@ module.exports = function $app(
 
   // ---
 
-  app.use(favicon(`${__dirname}/../public/images/fav.png`));
+  // app.use(favicon(`${__dirname}/../public/favicon.ico`));
 
   app.use(apiV1Router);
 

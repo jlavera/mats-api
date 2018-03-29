@@ -9,7 +9,7 @@
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
     "seed": "babel-node scripts/seed",
-    "start": "babel-node .",
+    "start": "rm -rf dist; npm run build:web; babel-node .",
     "start:rpi": "export NODE_ENV=rpi && node dist/.",
     "start:watch": "babel-watch .",
     "test": "export NODE_ENV=test && npm run lint && babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- --recursive",

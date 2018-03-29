@@ -24,29 +24,45 @@ module.exports = {
         'stylus-loader'
       ]
     }, {
-      test: /.*/,
-      use: 'file-loader?name=static/[ext]/[name].[ext]',
-      exclude: [
-        /npm\.js/,
-        /.eot/,
-        /.svg/,
-        /.ttf/,
-        /.woff/,
-        /.woff2/,
-      ],
-      include: [
-        path.resolve(__dirname, "web/static")
-      ]
-    }, {
-      test: /.*/,
+      test: /\.(eot|svg|ttf|woff|woff2)$/,
       use: 'file-loader?name=static/fonts/[name].[ext]',
       exclude: [
         /npm\.js/,
-        /.js/,
-        /.css/
+        /\.js/,
+        /\.css/
       ],
       include: [
-        path.resolve(__dirname, "web/static")
+        path.resolve(__dirname, 'web/static/fonts')
+      ]
+    }, {
+      test: /\.css$/,
+      use: 'file-loader?name=static/css/[name].[ext]',
+      exclude: [
+        /npm\.js/
+      ],
+      include: [
+        path.resolve(__dirname, 'web/static/css')
+      ]
+    }, {
+      test: /\.png$/,
+      use: 'file-loader?name=static/images/[name].[ext]',
+      include: [
+        path.resolve(__dirname, 'web/static/images')
+      ]
+    }, {
+      test: /\.ico$/,
+      use: 'file-loader?name=static/[name].[ext]',
+      include: [
+        path.resolve(__dirname, 'web/static')
+      ]
+    }, {
+      test: /\.js$/,
+      use: 'file-loader?name=static/js/[name].[ext]',
+      exclude: [
+        /npm\.js/
+      ],
+      include: [
+        path.resolve(__dirname, 'web/static/js')
       ]
     }]
   },
@@ -55,7 +71,8 @@ module.exports = {
     './web/index.html'
   ],
   resolve: {
-    extensions: ['.webpack.js', '.web.js', '.js',]
+    extensions: ['.webpack.js', '.web.js', '.js']
+    // extensions: ['.jsx', '.js']
   },
   output: {
     path: path.join(__dirname, '/dist'),
@@ -67,7 +84,7 @@ module.exports = {
     hot: true
   },
   node: {
-    fs: "empty"
+    fs: 'empty'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

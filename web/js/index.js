@@ -14,14 +14,27 @@ import components  from './components';
 
 require('../css/general.styl');
 
-require('../static/bootstrap/css/bootswatch.min.css');
-require('../static/bootstrap/js/bootstrap.min.js');
-require('../static/bootstrap/js/jquery-3.2.1.min.js');
-require('../static/bootstrap/fonts/glyphicons-halflings-regular.eot');
-require('../static/bootstrap/fonts/glyphicons-halflings-regular.svg');
-require('../static/bootstrap/fonts/glyphicons-halflings-regular.ttf');
-require('../static/bootstrap/fonts/glyphicons-halflings-regular.woff');
-require('../static/bootstrap/fonts/glyphicons-halflings-regular.woff2');
+// require('../static/css/superhero.min.css');
+// require('../static/css/flatly.min.css');
+require('../static/css/lux.min.css');
+require('../static/css/fonts.css');
+require('../static/js/bootstrap.min.js');
+require('../static/js/jquery-3.2.1.min.js');
+require('../static/fonts/glyphicons-halflings-regular.eot');
+require('../static/fonts/glyphicons-halflings-regular.svg');
+require('../static/fonts/glyphicons-halflings-regular.ttf');
+require('../static/fonts/glyphicons-halflings-regular.woff');
+require('../static/fonts/glyphicons-halflings-regular.woff2');
+require('../static/images/C.png');
+require('../static/images/E.png');
+require('../static/images/I.png');
+require('../static/images/K.png');
+require('../static/images/M.png');
+require('../static/images/N.png');
+require('../static/images/O.png');
+require('../static/images/Q.png');
+require('../static/images/T.png');
+require('../static/favicon.ico');
 
 const store  = createStore(
     allReducers,
