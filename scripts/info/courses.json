@@ -774,5 +774,178 @@
         "950702"
       ]
     }
+  },
+  {
+    "code": "NNNN31",
+    "name": "Optativa #1",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "3",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082024",
+        "082025",
+        "082026"
+      ]
+    }
+  },
+  {
+    "code": "NNNN32",
+    "name": "Optativa #2",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "3",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082024",
+        "082025",
+        "082026"
+      ]
+    }
+  },
+  {
+    "code": "NNNN41",
+    "name": "Optativa #1",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "6",
+        "year": "4",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082028",
+        "082027",
+        "082030"
+      ]
+    }
+  },
+  {
+    "code": "NNNN51",
+    "name": "Optativa #1",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "5",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082031",
+        "082033",
+        "082038",
+        "082041"
+      ]
+    }
+  },
+  {
+    "code": "NNNN52",
+    "name": "Optativa #2",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "5",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082031",
+        "082033",
+        "082038",
+        "082041"
+      ]
+    }
+  },
+  {
+    "code": "NNNN53",
+    "name": "Optativa #3",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "5",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082031",
+        "082033",
+        "082038",
+        "082041"
+      ]
+    }
+  },
+  {
+    "code": "NNNN54",
+    "name": "Optativa #4",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "5",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082031",
+        "082033",
+        "082038",
+        "082041"
+      ]
+    }
+  },
+  {
+    "code": "NNNN55",
+    "name": "Optativa #5",
+    "presentIn": [
+      {
+        "careerCode": "K",
+        "hours": "4",
+        "year": "5",
+        "duration": "C",
+        "optative": true,
+        "main": false
+      }
+    ],
+    "dependsOn": {
+      "approved": [
+        "082031",
+        "082033",
+        "082038",
+        "082041"
+      ]
+    }
   }
 ]
