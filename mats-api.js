@@ -1,5 +1,6 @@
 import configurationFactory from './src/config';
 import containerFactory     from './src/containerFactory';
+
 // ---
 
 if (require.main === module) {
