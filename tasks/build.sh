@@ -12,6 +12,7 @@ rm -rf artifact
 
 mkdir dist
 mkdir artifact
+mkdir -p dist/scripts/info
 
 # Get package name and version
 PACKAGE_NAME=`node -e "console.log(require('./package.json').name);"`
@@ -22,7 +23,7 @@ git-rev dist/VERSION
 
 # Copy assets
 cp -r assets package.json dist/
-cp -r scripts/info dist/scripts/info
+cp -r scripts/info dist/scripts
 
 # Install production dependencies
 npm install --production --prefix dist
