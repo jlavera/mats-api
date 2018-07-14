@@ -22,7 +22,7 @@ git-rev dist/VERSION
 
 # Copy assets
 cp -r assets package.json dist/
-cp -r scripts/info dist/scripts
+cp -r scripts/info dist/scripts/info
 
 # Install production dependencies
 npm install --production --prefix dist
