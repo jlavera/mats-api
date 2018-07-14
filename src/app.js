@@ -19,18 +19,19 @@ module.exports = function $app(
   winston2LoggerMiddleware
 ) {
   const app = express();
+  const distPath = process.env.NODE_ENV === 'aws' ? '/..' : '/../dist';
 
   // --- FRONTEND
 
   // app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
   // app.use(webpackHotMiddleware(compiler));
 
-  app.use(express.static(path.resolve(__dirname + '/../dist')));
+  app.use(express.static(path.resolve(__dirname + distPath)));
 
   // app.use(express.static(path.resolve('/../public')));
 
   app.get('/', function(request, response) {
-    response.sendFile(path.resolve(__dirname + '/../dist/index.html'))
+    response.sendFile(path.resolve(__dirname + `${distPath}/index.html`))
   });
 
   // --- API
