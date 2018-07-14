@@ -22,13 +22,15 @@ git-rev dist/VERSION
 
 # Copy assets
 cp -r assets package.json dist/
+cp -r scripts/info dist/scripts
 
 # Install production dependencies
 npm install --production --prefix dist
 
 # Transpile
+babel scripts --out-dir dist/scripts/ --source-maps true
 babel src --out-dir dist/src/ --source-maps true
-babel config --out-dir dist/config --source-maps true
+babel config --out-dir dist/config/ --source-maps true
 babel ${PACKAGE_NAME}.js --out-dir dist/ --source-maps true
 
 # Create Tar
