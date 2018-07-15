@@ -41,6 +41,14 @@ function orderedList(courses) {
       return 1;
     }
 
+    if (c1.optative && !c2.optative) {
+      return 1;
+    }
+
+    if (c2.optative && !c1.optative) {
+      return -1;
+    }
+
     if (c1.name < c2.name) {
       return -1;
     }
