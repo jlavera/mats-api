@@ -10,8 +10,8 @@ const ENV  = process.env.NODE_ENV || 'development';
 
 module.exports = {
   neo4j: {
-    uri:      'localhost:7474',
+    uri:      'bolt://localhost:7687',
     username: 'neo4j',
-    password: 'neo4j'
+    password: 'mats'
   }
 };
