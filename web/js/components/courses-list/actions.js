@@ -73,7 +73,6 @@ export const doGetCoursesForCareer = (careerCode, defaultState) => {
 
         dispatch(coursesListSuccess(careerCode, courses));
 
-        console.log(defaultState, stateStorage.get(), !!Object.keys(defaultState).length);
         const initialState = Object.keys(defaultState).length ? defaultState : stateStorage.get();
 
         Object.keys(initialState).forEach(key => {
