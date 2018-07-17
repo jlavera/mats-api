@@ -31,7 +31,7 @@ const coursesListError = (error) => {
   };
 };
 
-export const doGetCoursesForCareer = (careerCode) => {
+export const doGetCoursesForCareer = (careerCode, defaultState) => {
   function byCode(courses) {
     const obj = {};
 
@@ -72,7 +72,13 @@ export const doGetCoursesForCareer = (careerCode) => {
         });
 
         dispatch(coursesListSuccess(careerCode, courses));
-        dispatch(setInitialState(stateStorage.get()));
+
+        console.log(defaultState, stateStorage.get(), !!Object.keys(defaultState).length);
+        const initialState = Object.keys(defaultState).length ? defaultState : stateStorage.get();
+
+        Object.keys(initialState).forEach(key => {
+          dispatch(changeState(initialState[key], key));
+        });
       })
       .catch(error => {
         console.log(error.message);
@@ -93,20 +99,3 @@ const changeState = (state, courseCode) => {
     }
   }
 };
-
-export const doChangeStateCourse = (state, courseCode) => {
-  return function (dispatch) {
-    dispatch(changeState(state, courseCode));
-  }
-}
-
-export const SETINITIALSTATE = 'SETINITIALSTATE';
-
-const setInitialState = (list) => {
-  return {
-    type: SETINITIALSTATE,
-    payload: {
-      list
-    }
-  };
-}

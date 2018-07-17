@@ -1,4 +1,4 @@
-const storageVersion = 'mats-web-1';
+const storageVersion = 'mats-web-2';
 
 module.exports = {
   get,
@@ -6,29 +6,15 @@ module.exports = {
 }
 
 function get() {
-  const localState = JSON.parse(localStorage.getItem(storageVersion));
+  const cookie = JSON.parse(localStorage.getItem(storageVersion));
 
-  if (!localState) {
-    return [];
-  }
-
-  return localState.localState || [];
+  return cookie && cookie.localState ? cookie.localState : {};
 }
 
 function set(course) {
   const localState = get();
 
-  let present      = false;
-  localState.forEach(localCourse => {
-    if (!present && localCourse.code === course.code) {
-      localCourse.state = course.state;
-      present           = true;
-    }
-  });
-
-  if (!present) {
-    localState.push({code: course.code, state: course.state});
-  }
+  localState[course.code] = course.state;
 
   const stateToStore = JSON.stringify({localState: localState});
 

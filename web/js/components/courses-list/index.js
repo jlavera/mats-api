@@ -1,6 +1,7 @@
 import React, { Component }   from 'react';
 import { bindActionCreators } from 'redux';
 import { connect }            from 'react-redux';
+import { withRouter }         from 'react-router'
 
 import { coursesList }        from './reducer';
 import {
@@ -11,13 +12,32 @@ import {
 import Year from '../year';
 
 class CoursesList extends Component {
+
   constructor(props) {
     super(props);
+
+    this.defaultState = {};
+
+    if (this.props.location && this.props.location.query) {
+      const { signed, approved } = this.props.location.query;
+
+      this.signed   = (signed || '').split(',').filter(item => !!item);
+      this.approved = (approved || '').split(',').filter(item => !!item);
+
+      this.signed.forEach(code => {
+        this.defaultState[code]= 'S';
+      });
+      this.approved.forEach(code => {
+        this.defaultState[code]= 'A';
+      });
+    } else {
+      this.defaultState = null;
+    }
   }
 
   componentDidUpdate() {
     if (this.props.selected && !this.props.isFetching && this.props.selected !== this.props.loaded) {
-      this.props.fs.doGetCoursesForCareer(this.props.selected);
+      this.props.fs.doGetCoursesForCareer(this.props.selected, this.defaultState);
     }
   }
 
@@ -77,4 +97,4 @@ function mapDispatchToProps(dispatch){
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoursesList);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CoursesList));

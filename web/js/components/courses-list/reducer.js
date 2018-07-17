@@ -39,20 +39,6 @@ export default function (state = initialState, action) {
         .set('isFetching', false)
         .set('error',      action.payload.error)
       ;
-    case SETINITIALSTATE:
-      courses              = Object.assign({}, state.get('fixture'));
-
-      // set new state to the courses
-      (action.payload.list || []).forEach(course => {
-        courses[course.code].state = course.state;
-
-        updateCoursesAvailability(courses[course.code].dependents);
-      });
-
-
-      return state
-        .set('fixture', courses)
-      ;
     case CHANGESTATE:
       courses           = Object.assign({}, state.get('fixture'));
       let changedCourse = courses[action.payload.code];
