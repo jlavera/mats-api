@@ -12,17 +12,17 @@ import {
 import Year from '../year';
 
 class CoursesList extends Component {
-
   constructor(props) {
     super(props);
 
-    this.defaultState = {};
 
     if (this.props.location && this.props.location.query) {
-      const { signed, approved } = this.props.location.query;
+      const { signed, approved, readMode } = this.props.location.query;
 
-      this.signed   = (signed || '').split(',').filter(item => !!item);
-      this.approved = (approved || '').split(',').filter(item => !!item);
+      // Default state
+      this.defaultState = {};
+      this.signed       = (signed || '').split(',').filter(item => !!item);
+      this.approved     = (approved || '').split(',').filter(item => !!item);
 
       this.signed.forEach(code => {
         this.defaultState[code]= 'S';
@@ -30,8 +30,12 @@ class CoursesList extends Component {
       this.approved.forEach(code => {
         this.defaultState[code]= 'A';
       });
+
+      // Read mode
+      this.readMode     = readMode === 'true';
     } else {
       this.defaultState = null;
+      this.readMode     = false;
     }
   }
 
@@ -50,7 +54,7 @@ class CoursesList extends Component {
       <div>
         <div className="flexcontainerhorizontal row center">
           {this.props.list.map((courses, index) =>
-            <Year key={index} year={index + 1} courses={courses} onChangeState={this.props.fs.doChangeStateCourse} />
+            <Year key={index} year={index + 1} courses={courses} onChangeState={this.props.fs.doChangeStateCourse} readMode={this.readMode}/>
           )}
         </div>
       </div>

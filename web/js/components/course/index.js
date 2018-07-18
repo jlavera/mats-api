@@ -1,4 +1,5 @@
 import React, { Component }   from 'react'
+import { withRouter }         from 'react-router'
 
 import Dependency from '../dependency';
 
@@ -75,15 +76,15 @@ class Course extends Component {
 
   render() {
     return (
-      <div className={(this.isSigned() ? 'border-success' : 'border-primary') + " course-container card"}>
+      <div className={(this.isSigned() ? 'border-success' : 'border-primary') + (this.props.readMode ? ' course-container-read-mode ' : '') + " course-container card"}>
         <div className={
           (this.props.course.main ? "underlined" : "" )
           + (this.isApproved() ? ' bg-success text-white' : '')
           + " course-name"}>{this.props.course.name}
         </div>
-        <div className={(this.isNone()     ? 'bg-light' : '') + " course-button course-button-pending"}  onClick={() => this.props.onChangeState('N', this.props.course.code)}>PEND</div>
-        <div className={(this.isSigned()   ? 'bg-light' : '') + " course-button course-button-signed"}   onClick={() => this.props.onChangeState('S', this.props.course.code)}>FIRM</div>
-        <div className={(this.isApproved() ? 'bg-light' : '') + " course-button course-button-approved"} onClick={() => this.props.onChangeState('A', this.props.course.code)}>APRO</div>
+        <div className={(this.isNone()     ? 'bg-light' : '') + (this.props.readMode ? ' hidden ' : '') + " course-button course-button-pending"}  onClick={() => this.props.onChangeState('N', this.props.course.code)}>PEND</div>
+        <div className={(this.isSigned()   ? 'bg-light' : '') + (this.props.readMode ? ' hidden ' : '') + " course-button course-button-signed"}   onClick={() => this.props.onChangeState('S', this.props.course.code)}>FIRM</div>
+        <div className={(this.isApproved() ? 'bg-light' : '') + (this.props.readMode ? ' hidden ' : '') + " course-button course-button-approved"} onClick={() => this.props.onChangeState('A', this.props.course.code)}>APRO</div>
         {this.getStatus()}
         <div className="course-deps">
           <div aria-controls="collapseExample" aria-expanded="true" className="course-arrow text-primary" data-target={"#deps-" + this.props.course.code} data-toggle="collapse"></div>
@@ -139,4 +140,4 @@ class Course extends Component {
   }
 };
 
-export default Course;
+export default withRouter(Course);

@@ -98,3 +98,9 @@ const changeState = (state, courseCode) => {
     }
   }
 };
+
+export const doChangeStateCourse = (state, courseCode) => {
+  return function (dispatch) {
+    dispatch(changeState(state, courseCode));
+  }
+}
