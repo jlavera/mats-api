@@ -43,6 +43,9 @@ export default function (state = initialState, action) {
       courses           = Object.assign({}, state.get('fixture'));
       let changedCourse = courses[action.payload.code];
 
+      if (!changedCourse) {
+        return state;
+      }
       // set new state to the course
       changedCourse.state = action.payload.state;
 
