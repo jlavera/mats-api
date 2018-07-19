@@ -44,7 +44,11 @@ export default function (state = initialState, action) {
       let changedCourse = courses[action.payload.code];
 
       if (!changedCourse) {
-        return state;
+        let courseCode = Object.keys(courses).filter(code => {
+          return courses[code].alternativeCodes.indexOf(action.payload.code) > -1;
+        })[0];
+
+        changedCourse = courses[courseCode];
       }
       // set new state to the course
       changedCourse.state = action.payload.state;

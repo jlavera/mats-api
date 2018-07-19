@@ -31,9 +31,10 @@ Promise.resolve()
   .return(courses)
   .map(course => Promise.resolve()
     .then(() => neo4j.run(
-      'MERGE (course: Course { name: {courseName}, code: {courseCode} });', {
-        courseName: course.name,
-        courseCode: course.code
+      'MERGE (course: Course { name: {courseName}, code: {courseCode} , alternativeCodes: {alternativeCodes}});', {
+        courseName:       course.name,
+        courseCode:       course.code,
+        alternativeCodes: course.alternativeCodes || []
       }
     ))
 
