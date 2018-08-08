@@ -8,8 +8,8 @@ module.exports = function careersController(
   return expressify({
     get,
     getAll,
-    getReverseTree,
-    getTree
+    getCourses,
+    getOptionals
   });
 
   // ---
@@ -37,23 +37,23 @@ module.exports = function careersController(
   }
 
   /**
-  * Retrieves reversed dependency tree of the career.
-  *
-  * @returns {Promise}
-  */
-  function getReverseTree(req, res) {
-    return careersService.getReverseTree(req.context, '' + req.params.careerCode)
+   * Retrieves courses for a career.
+   *
+   * @returns {Promise}
+   */
+  function getCourses(req, res) {
+    return careersService.getCourses(req.context, '' + req.params.careerCode)
       .then(response => res.json(response))
     ;
   }
 
   /**
-   * Retrieves dependency tree of the career.
+   * Retrieves optional courses for a career.
    *
    * @returns {Promise}
    */
-  function getTree(req, res) {
-    return careersService.getTree(req.context, '' + req.params.careerCode)
+  function getOptionals(req, res) {
+    return careersService.getOptionals(req.context, '' + req.params.careerCode)
       .then(response => res.json(response))
     ;
   }

@@ -11,8 +11,8 @@ module.exports = function authenticationService(
     createToken
   };
 
-  function createToken(context, username, password) {
-    return usersService.get(context, username, true)
+  function createToken(context, code, password) {
+    return usersService.get(context, code, true)
       .then(user => {
         return hashingService.compare(password, user.password)
           .then(result => {
@@ -22,9 +22,8 @@ module.exports = function authenticationService(
 
             return {
               bearer: jwt.sign({
-                id:       user.id,
-                username: user.username,
-                role:     user.role
+                code: user.code,
+                role: user.role
               },
               config.auth.secret,
               {expiresIn: config.auth.expiresIn})

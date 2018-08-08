@@ -4,13 +4,20 @@ import bluebird from 'bluebird';
 // ---
 
 module.exports = function usersRepository(
-  neo4j
+  mongoDb
 ) {
+  const collection = 'users';
+
   return {
     createUser,
     del,
     get,
-    getAll
+    getAll,
+
+    addToSigned,
+    addToApproved,
+    removeFromSigned,
+    removeFromApproved
   };
 
   // ---
@@ -20,11 +27,14 @@ module.exports = function usersRepository(
    *
    * @returns {Promise}
    */
-  function createUser(username, password) {
-    return neo4j.runEmpty(
-      'CREATE (user:User {username: {username}, password: {password}, role: "USER"})',
-      {username: username, password: password}
-    );
+  function createUser(context, code, password) {
+    return mongoDb.run(db => db.collection(collection).insert({
+      code:     code,
+      password: password,
+      role:     'USER',
+      signed:   [],
+      approved: []
+    }));
   }
 
   /**
@@ -32,8 +42,8 @@ module.exports = function usersRepository(
    *
    * @returns {Promise}
    */
-  function del(username) {
-    return neo4j.runEmpty('MATCH (user:User {username: {username}}) DELETE user', {username: username});
+  function del(context, code) {
+    return mongoDb.run(db => db.collection(collection).deleteOne({ code: code }));
   }
 
   /**
@@ -41,13 +51,14 @@ module.exports = function usersRepository(
    *
    * @returns {Promise}
    */
-  function get(username, withPassword) {
-    return neo4j.runSingle(
-      'MATCH (user:User {username: {username}}) RETURN user',
-      {username: username}
-    )
-      .then(user => withPassword ? user : _.omit(user, 'password'))
-    ;
+  function get(context, code, withPassword) {
+    const projection = { _id: 0 };
+
+    if (!withPassword) {
+      projection.password = 0;
+    }
+
+    return mongoDb.runOne(collection, { code: code }, projection);
   }
 
   /**
@@ -55,12 +66,23 @@ module.exports = function usersRepository(
    *
    * @returns {Promise}
    */
-  function getAll() {
-    return neo4j.runMultiple(
-      'MATCH (user:User) RETURN user',
-      {}
-    )
-      .map(user => _.omit(user, 'password'))
-    ;
+  function getAll(context) {
+    return mongoDb.runMultiple(collection, {}, { _id: 0, code: 1 });
+  }
+
+  function addToSigned(context, userCode, codes) {
+    return mongoDb.run(db => db.collection(collection).update({ code: userCode }, { $addToSet: { signed: { $each: codes } } }));
+  }
+
+  function addToApproved(context, userCode, codes) {
+    return mongoDb.run(db => db.collection(collection).update({ code: userCode }, { $addToSet: { approved: { $each: codes } } }));
+  }
+
+  function removeFromSigned(context, userCode, codes) {
+    return mongoDb.run(db => db.collection(collection).update({ code: userCode }, { $pullAll: { signed: codes } }));
+  }
+
+  function removeFromApproved(context, userCode, codes) {
+    return mongoDb.run(db => db.collection(collection).update({ code: userCode }, { $pullAll: { approved: codes } }));
   }
 };

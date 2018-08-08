@@ -1,0 +1,863 @@
+[{
+  "code": "K",
+  "name": "Ingeniería en Sistemas",
+  "optionals": [
+    {
+      "year": 3,
+      "required": 2,
+      "courses": [
+        "082095",
+        "082098",
+        "082060",
+        "082061",
+        "082094",
+        "082062",
+        "082063",
+        "082075",
+        "082007",
+        "082064",
+        "082008",
+        "082065",
+        "082066",
+        "082006"
+      ]
+    },
+    {
+      "year": 4,
+      "required": 1,
+      "courses": [
+        "082067",
+        "082033",
+        "082009",
+        "082071",
+        "082018",
+        "082005",
+        "082074",
+        "082099",
+        "082019",
+        "082068",
+        "951699",
+        "082069",
+        "082070",
+        "082072",
+        "082073"
+      ]
+    },
+    {
+      "year": 5,
+      "required": 5,
+      "courses": [
+        "082076",
+        "082077",
+        "082045",
+        "082003",
+        "082011",
+        "082012",
+        "082093",
+        "082010",
+        "082047",
+        "082078",
+        "082079",
+        "082013",
+        "082097",
+        "082042",
+        "082043",
+        "951661",
+        "082017",
+        "082080",
+        "082096",
+        "082081",
+        "082082",
+        "082083",
+        "082084",
+        "082085",
+        "082086",
+        "082004",
+        "082016",
+        "082087",
+        "082088",
+        "082015",
+        "082089",
+        "082090",
+        "082091",
+        "082014",
+        "082044",
+        "082092"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "code": "950309",
+      "name": "Economía",
+      "duration": "C",
+      "hours": "6",
+      "year": "3",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082024"
+        ],
+        "toApprove": [
+          "082023",
+          "082021"
+        ]
+      },
+      "dependents": [
+        "082037",
+        "082035",
+        "082033",
+        "082039"
+      ]
+    },
+    {
+      "code": "950310",
+      "name": "Legislación",
+      "duration": "C",
+      "hours": "4",
+      "year": "3",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "951604",
+          "082024"
+        ],
+        "toApprove": [
+          "082021",
+          "082023"
+        ]
+      },
+      "dependents": [
+        "082037"
+      ]
+    },
+    {
+      "code": "950605",
+      "name": "Física 1",
+      "duration": "A",
+      "hours": "5",
+      "year": "2",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082029",
+        "950606"
+      ]
+    },
+    {
+      "code": "950606",
+      "name": "Física 2",
+      "duration": "C",
+      "hours": "10",
+      "year": "3",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "950702",
+          "950605"
+        ],
+        "toApprove": []
+      },
+      "dependents": [
+        "082031",
+        "082029",
+        "082036"
+      ]
+    },
+    {
+      "code": "950701",
+      "name": "Álgebra y Geometría Analítica",
+      "duration": "A",
+      "hours": "5",
+      "year": "1",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082029",
+        "082032",
+        "950704",
+        "950703"
+      ]
+    },
+    {
+      "code": "950702",
+      "name": "Análisis Matemático 1",
+      "duration": "A",
+      "hours": "5",
+      "year": "1",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082029",
+        "082032",
+        "950606",
+        "950703",
+        "950704"
+      ]
+    },
+    {
+      "code": "950703",
+      "name": "Análisis Matemático 2",
+      "duration": "A",
+      "hours": "5",
+      "year": "2",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "950702",
+          "950701"
+        ],
+        "toApprove": []
+      },
+      "dependents": [
+        "082034",
+        "082041",
+        "082031",
+        "082032",
+        "082036",
+        "082029"
+      ]
+    },
+    {
+      "code": "950704",
+      "name": "Probabilidad y Estadística",
+      "duration": "C",
+      "hours": "6",
+      "year": "2",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "950701",
+          "950702"
+        ],
+        "toApprove": []
+      },
+      "dependents": [
+        "082037",
+        "082035",
+        "082039",
+        "082040",
+        "082034",
+        "082041",
+        "082038"
+      ]
+    },
+    {
+      "code": "951601",
+      "name": "Sistemas de Representación",
+      "duration": "A",
+      "hours": "3",
+      "year": "2",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082037"
+      ]
+    },
+    {
+      "code": "951602",
+      "name": "Inglés 1",
+      "duration": "C",
+      "hours": "4",
+      "year": "2",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082033",
+        "951603"
+      ]
+    },
+    {
+      "code": "951603",
+      "name": "Inglés 2",
+      "duration": "C",
+      "hours": "4",
+      "year": "3",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": [
+          "951602"
+        ]
+      },
+      "dependents": [
+        "082037"
+      ]
+    },
+    {
+      "code": "951604",
+      "name": "Ingeniería y Sociedad",
+      "duration": "C",
+      "hours": "4",
+      "year": "1",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082037",
+        "950310"
+      ]
+    },
+    {
+      "code": "082032",
+      "name": "Matemática Superior",
+      "duration": "C",
+      "hours": "8",
+      "year": "3",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "950703"
+        ],
+        "toApprove": [
+          "950702",
+          "950701"
+        ]
+      },
+      "dependents": [
+        "082039",
+        "082035",
+        "082040",
+        "082034",
+        "082041",
+        "082036"
+      ]
+    },
+    {
+      "code": "082036",
+      "name": "Teoría de Control",
+      "duration": "C",
+      "hours": "6",
+      "year": "4",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082032",
+          "081420"
+        ],
+        "toApprove": [
+          "950703",
+          "950606"
+        ]
+      },
+      "dependents": []
+    },
+    {
+      "code": "082021",
+      "name": "Algoritmos y Estructura de Datos",
+      "duration": "A",
+      "hours": "5",
+      "year": "1",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082030",
+        "950310",
+        "082028",
+        "082031",
+        "082026",
+        "082025",
+        "950309",
+        "082027",
+        "082024"
+      ]
+    },
+    {
+      "code": "082022",
+      "name": "Arquitectura de Computadoras",
+      "duration": "A",
+      "hours": "4",
+      "year": "1",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082033",
+        "082031",
+        "082029"
+      ]
+    },
+    {
+      "code": "082029",
+      "name": "Comunicaciones",
+      "duration": "C",
+      "hours": "8",
+      "year": "4",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "950606",
+          "082022",
+          "950703"
+        ],
+        "toApprove": [
+          "950702",
+          "950605",
+          "950701"
+        ]
+      },
+      "dependents": [
+        "082037",
+        "082031"
+      ]
+    },
+    {
+      "code": "082033",
+      "name": "Administración de Recursos",
+      "duration": "A",
+      "hours": "6",
+      "year": "4",
+      "optative": false,
+      "main": true,
+      "dependencies": {
+        "toSign": [
+          "950309",
+          "082027",
+          "082028"
+        ],
+        "toApprove": [
+          "082024",
+          "951602",
+          "082026",
+          "082022"
+        ]
+      },
+      "dependents": [
+        "082037",
+        "082035",
+        "082039"
+      ]
+    },
+    {
+      "code": "082034",
+      "name": "Investigación Operativa",
+      "duration": "C",
+      "hours": "10",
+      "year": "4",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082032",
+          "950704"
+        ],
+        "toApprove": [
+          "950703"
+        ]
+      },
+      "dependents": [
+        "082035",
+        "082039",
+        "082040"
+      ]
+    },
+    {
+      "code": "082037",
+      "name": "Proyecto Final",
+      "duration": "A",
+      "hours": "6",
+      "year": "5",
+      "optative": false,
+      "main": true,
+      "dependencies": {
+        "toSign": [
+          "082038",
+          "082031",
+          "082033",
+          "950310"
+        ],
+        "toApprove": [
+          "951601",
+          "951604",
+          "950704",
+          "950309",
+          "082027",
+          "082028",
+          "951603",
+          "082030",
+          "082029"
+        ]
+      },
+      "dependents": []
+    },
+    {
+      "code": "082026",
+      "name": "Paradigmas de Programación",
+      "duration": "A",
+      "hours": "8",
+      "year": "2",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082021",
+          "082020"
+        ],
+        "toApprove": []
+      },
+      "dependents": [
+        "082033",
+        "082030",
+        "082028",
+        "082038"
+      ]
+    },
+    {
+      "code": "082020",
+      "name": "Matemática Discreta",
+      "duration": "A",
+      "hours": "3",
+      "year": "1",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082031",
+        "082030",
+        "082028",
+        "082026",
+        "082025",
+        "082027"
+      ]
+    },
+    {
+      "code": "082023",
+      "name": "Sistemas y Organizaciones",
+      "duration": "A",
+      "hours": "3",
+      "year": "1",
+      "optative": false,
+      "main": true,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "950310",
+        "082030",
+        "082028",
+        "950309",
+        "082027",
+        "082024"
+      ]
+    },
+    {
+      "code": "082030",
+      "name": "Gestión de Datos",
+      "duration": "C",
+      "hours": "8",
+      "year": "3",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082025",
+          "082026",
+          "082024"
+        ],
+        "toApprove": [
+          "082021",
+          "082020",
+          "082023"
+        ]
+      },
+      "dependents": [
+        "082037",
+        "082038"
+      ]
+    },
+    {
+      "code": "082031",
+      "name": "Redes de Información",
+      "duration": "C",
+      "hours": "8",
+      "year": "4",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082029",
+          "082027"
+        ],
+        "toApprove": [
+          "082020",
+          "082022",
+          "950606",
+          "082021",
+          "950703"
+        ]
+      },
+      "dependents": [
+        "082037"
+      ]
+    },
+    {
+      "code": "082035",
+      "name": "Sistemas de Gestión",
+      "duration": "C",
+      "hours": "8",
+      "year": "5",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082041",
+          "082034",
+          "082033"
+        ],
+        "toApprove": [
+          "950704",
+          "950309",
+          "082028",
+          "082032",
+          "082027"
+        ]
+      },
+      "dependents": []
+    },
+    {
+      "code": "082041",
+      "name": "Simulación",
+      "duration": "C",
+      "hours": "8",
+      "year": "4",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082032",
+          "950704"
+        ],
+        "toApprove": [
+          "950703"
+        ]
+      },
+      "dependents": [
+        "082035",
+        "082040"
+      ]
+    },
+    {
+      "code": "082025",
+      "name": "Sintaxis y Semántica de los Lenguajes",
+      "duration": "A",
+      "hours": "4",
+      "year": "2",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082021",
+          "082020"
+        ],
+        "toApprove": []
+      },
+      "dependents": [
+        "082030",
+        "082038"
+      ]
+    },
+    {
+      "code": "082024",
+      "name": "Análisis de Sistemas",
+      "duration": "A",
+      "hours": "6",
+      "year": "2",
+      "optative": false,
+      "main": true,
+      "dependencies": {
+        "toSign": [
+          "082023",
+          "082021"
+        ],
+        "toApprove": []
+      },
+      "dependents": [
+        "082033",
+        "082038",
+        "082030",
+        "950310",
+        "950309",
+        "082028"
+      ]
+    },
+    {
+      "code": "082038",
+      "name": "Ingeniería de Software",
+      "duration": "C",
+      "hours": "6",
+      "year": "4",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "950704",
+          "082028",
+          "082030"
+        ],
+        "toApprove": [
+          "082024",
+          "082025",
+          "082026"
+        ]
+      },
+      "dependents": [
+        "082037"
+      ]
+    },
+    {
+      "code": "081420",
+      "name": "Química",
+      "duration": "C",
+      "hours": "6",
+      "year": "1",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [],
+        "toApprove": []
+      },
+      "dependents": [
+        "082036"
+      ]
+    },
+    {
+      "code": "082039",
+      "name": "Administración Gerencial",
+      "duration": "C",
+      "hours": "6",
+      "year": "5",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082034",
+          "082033"
+        ],
+        "toApprove": [
+          "082032",
+          "950309",
+          "950704",
+          "082027",
+          "082028"
+        ]
+      },
+      "dependents": []
+    },
+    {
+      "code": "082040",
+      "name": "Inteligencia Artificial",
+      "duration": "C",
+      "hours": "6",
+      "year": "5",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082041",
+          "082034"
+        ],
+        "toApprove": [
+          "082032",
+          "082028",
+          "950704"
+        ]
+      },
+      "dependents": []
+    },
+    {
+      "code": "082028",
+      "name": "Diseño de Sistemas",
+      "duration": "A",
+      "hours": "6",
+      "year": "3",
+      "optative": false,
+      "main": true,
+      "dependencies": {
+        "toSign": [
+          "082026",
+          "082024"
+        ],
+        "toApprove": [
+          "082021",
+          "082023",
+          "082020"
+        ]
+      },
+      "dependents": [
+        "082037",
+        "082035",
+        "082040",
+        "082039",
+        "082033",
+        "082038"
+      ]
+    },
+    {
+      "code": "082027",
+      "name": "Sistemas Operativos",
+      "duration": "C",
+      "hours": "8",
+      "year": "3",
+      "optative": false,
+      "main": false,
+      "dependencies": {
+        "toSign": [
+          "082023",
+          "082021",
+          "082020"
+        ],
+        "toApprove": []
+      },
+      "dependents": [
+        "082037",
+        "082035",
+        "082033",
+        "082039",
+        "082031"
+      ]
+    }
+  ]
+}]

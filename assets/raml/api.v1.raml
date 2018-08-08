@@ -19,7 +19,7 @@ mediaType: application/json
     body:
       example: |
         {
-          "username": "user",
+          "code": 123123,
           "password": "pass"
         }
       schema: |
@@ -27,15 +27,15 @@ mediaType: application/json
           "$schema": "http://json-schema.org/draft-04/schema#",
           "type": "object",
           "properties": {
-            "username": {
-              "type": "string"
+            "code": {
+              "type": "integer"
             },
             "password": {
               "type": "string"
             }
           },
           "required": [
-            "username",
+            "code",
             "password"
           ]
         }
@@ -100,58 +100,35 @@ mediaType: application/json
             body:
               application/json:
                 example: |
-                  [{
-                    "name": "Algoritmos",
-                    "code": "082021",
-                    "year": "1"
-                  }, {
-                    "name": "Diseño de sistemas",
-                    "code": "082028",
-                    "year": "3"
-                  }]
-
-      /{courseCode}:
-        uriParameters:
-          courseCode:
-            type:        string
-            required:    true
-            description: Código de la materia
-
-        get:
-          responses:
-            200:
-              body:
-                application/json:
-                  example: |
-                    {
+                  {
+                    "082021": {
+                      "name": "Algoritmos",
+                      "code": "082021",
+                      "year": "1"
+                    },
+                    "082028": {
                       "name": "Diseño de sistemas",
                       "code": "082028",
                       "year": "3"
                     }
+                  }
 
-        /inDependencies:
-          get:
-            responses:
-              200:
-                body:
-                  application/json:
-                    description: Lista de materias que la bloquean
-
-        /outDependencies:
-          get:
-            responses:
-              200:
-                body:
-                  application/json:
-                    description: Lista de materias que desbloquea
-
-    /tree:
+    /optionals:
       get:
-        description: Árbol de dependencias de la carrera
-
-    /reverseTree:
-      get:
-        description: Árbol de dependencias de la carrera invertido
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  [{
+                    "year": "3",
+                    "required": "2",
+                    "courses": ["082021"]
+                  }, {
+                    "year": "4",
+                    "required": "1",
+                    "name": ["082028"]
+                  }]
 
 /users:
   get:
@@ -167,11 +144,40 @@ mediaType: application/json
                 "username": "user2"
               }]
 
+  post:
+    body:
+      application/json:
+        schema: |
+          {
+            "type":       "object",
+            "$schema":    "http://json-schema.org/draft-03/schema",
+            "id":         "http://jsonschema.net",
+            "properties": {
+              "code": {
+                "type":     "integer"
+              },
+              "password":   {
+                "type":     "string"
+              }
+            },
+            "required": [
+              "code",
+              "password"
+            ]
+          }
+    responses:
+      200:
+        description: En caso de actualización correcta
+      201:
+        description: En caso de creación correcta
+      409:
+        description: En caso de colisión de nombres de usuario
+
   /{username}:
     uriParameters:
       username:
-        type:       string
-        required:   true
+        type:        integer
+        required:    true
         description: Nombre de usuario
 
     get:
@@ -184,43 +190,46 @@ mediaType: application/json
                   "username": "user1"
                 }
 
-    put:
-      body:
-        application/json:
-          schema: |
-            {
-              "type":       "object",
-              "$schema":    "http://json-schema.org/draft-03/schema",
-              "id":         "http://jsonschema.net",
-              "required":   true,
-              "properties": {
-                "password":   {
-                  "type":     "string",
-                  "required": true
-                },
-                "email":      {
-                  "type":     "string",
-                  "required": false
-                }
-              }
-            }
-      responses:
-        200:
-          description: En caso de actualización correcta
-        201:
-          description: En caso de creación correcta
-        409:
-          description: En caso de colisión de nombres de usuario
-
     delete:
       responses:
         200:
           description: En caso de eliminación correcta
 
-    /courses:
-      get:
-        responses:
-          200:
-            body:
-              application/json:
-                description: Lista de materias aprobadas o firmadas
+    /signed:
+      post:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "array",
+                "$schema": "http://json-schema.org/draft-03/schema",
+                "items": {
+                  "type": "string"
+                }
+              }
+
+    /approved:
+      post:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "array",
+                "$schema": "http://json-schema.org/draft-03/schema",
+                "items": {
+                  "type": "string"
+                }
+              }
+
+    /pending:
+      post:
+        body:
+          application/json:
+            schema: |
+              {
+                "type": "array",
+                "$schema": "http://json-schema.org/draft-03/schema",
+                "items": {
+                  "type": "string"
+                }
+              }

@@ -1,17 +1,11 @@
 [{
-  "username": "joa",
-  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
-  "role":     "ADMIN"
-}, {
-  "username": "juan",
-  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
-  "role":     "USER"
-}, {
-  "username": "pablito",
-  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
-  "role":     "USER"
-}, {
-  "username": "leo",
-  "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
-  "role":     "ADMIN"
+    "code":     1440135,
+    "password": "$2a$10$/COCorlbq3GL7CkS88aXfOoszcqftzsKxmZkPWwBk4qTB1ve2kg1u",
+    "role":     "ADMIN",
+    "signed":   [
+      "950703"
+    ],
+    "approved": [
+      "950702"
+    ]
 }]

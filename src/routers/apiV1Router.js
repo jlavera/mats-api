@@ -7,7 +7,6 @@ module.exports = function apiV1Router(
 
   authenticationController,
   careersController,
-  coursesController,
   statusController,
   usersController
 ) {
@@ -39,21 +38,20 @@ module.exports = function apiV1Router(
     .post('/auth', authenticationController.createToken)
 
     // Static endpoints
-    .get('/careers',                                                 careersController.getAll)
-    .get('/careers/:careerCode',                                     careersController.get)
-    .get('/careers/:careerCode/courses',                             coursesController.getAllByCareer)
-    .get('/careers/:careerCode/courses/:courseCode',                 coursesController.get)
-    .get('/careers/:careerCode/courses/:courseCode/inDependencies',  coursesController.getInDependencies)
-    .get('/careers/:careerCode/courses/:courseCode/outDependencies', coursesController.getOutDependencies)
-
-    .get('/careers/:careerCode/tree',        careersController.getTree)
-    .get('/careers/:careerCode/reverseTree', careersController.getReverseTree)
+    .get('/careers',                       authorizationMiddleware.anonymous, careersController.getAll)
+    .get('/careers/:careerCode',           authorizationMiddleware.anonymous, careersController.get)
+    .get('/careers/:careerCode/courses',   authorizationMiddleware.anonymous, careersController.getCourses)
+    .get('/careers/:careerCode/optionals', authorizationMiddleware.anonymous, careersController.getOptionals)
 
     // Users endpoints
-    .get(   '/users',           authorizationMiddleware.onlyAdmin, usersController.getAll)
-    .get(   '/users/:username', authorizationMiddleware.onlyUser,  usersController.get)
-    .put(   '/users/:username',                                    usersController.createUser)
-    .delete('/users/:username', authorizationMiddleware.onlyUser,  usersController.del)
+    .get(   '/users',       authorizationMiddleware.onlyAdmin, usersController.getAll)
+    .post(  '/users/',      authorizationMiddleware.anonymous, usersController.createUser)
+    .get(   '/users/:code', authorizationMiddleware.onlyUser,  usersController.get)
+    .delete('/users/:code', authorizationMiddleware.onlyUser,  usersController.del)
+
+    .post(  '/users/:code/signed',   authorizationMiddleware.onlyUser,  usersController.signed)
+    .post(  '/users/:code/approved', authorizationMiddleware.onlyUser,  usersController.approved)
+    .post(  '/users/:code/pending',  authorizationMiddleware.onlyUser,  usersController.pending)
   );
 };
 

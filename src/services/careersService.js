@@ -9,8 +9,9 @@ module.exports = function careersService(
   return {
     get,
     getAll,
-    getReverseTree,
-    getTree
+    getCourses,
+    getCoursesByCode,
+    getOptionals
   };
 
   // ---
@@ -42,20 +43,28 @@ module.exports = function careersService(
   }
 
   /**
-   * Retrieves the reversed dependency tree of a career
+   * Retrieves courses for a career.
    *
    * @returns {Promise}
    */
-  function getReverseTree(context, careerCode) {
-    return careersRepository.getReverseTree(careerCode);
+  function getCourses(context, careerCode) {
+    return get(context, careerCode)
+      .then(career => career.courses)
+    ;
+  }
+
+  function getCoursesByCode(context, coursesCodes) {
+    return careersRepository.getCoursesByCode(context, coursesCodes);
   }
 
   /**
-   * Retrieves the dependency tree of a career
+   * Retrieves optional courses for a career.
    *
    * @returns {Promise}
    */
-  function getTree(context, careerCode) {
-    return careersRepository.getTree(careerCode);
+  function getOptionals(context, careerCode) {
+    return get(context, careerCode)
+      .then(career => career.optionals)
+    ;
   }
 };
