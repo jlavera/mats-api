@@ -96,10 +96,10 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082024"
         ],
-        "toApprove": [
+        "approved": [
           "082023",
           "082021"
         ]
@@ -120,11 +120,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "951604",
           "082024"
         ],
-        "toApprove": [
+        "approved": [
           "082021",
           "082023"
         ]
@@ -142,8 +142,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082029",
@@ -159,11 +159,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "950702",
           "950605"
         ],
-        "toApprove": []
+        "approved": []
       },
       "dependents": [
         "082031",
@@ -180,8 +180,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082029",
@@ -199,8 +199,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082029",
@@ -219,11 +219,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "950702",
           "950701"
         ],
-        "toApprove": []
+        "approved": []
       },
       "dependents": [
         "082034",
@@ -243,11 +243,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "950701",
           "950702"
         ],
-        "toApprove": []
+        "approved": []
       },
       "dependents": [
         "082037",
@@ -268,8 +268,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082037"
@@ -284,8 +284,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082033",
@@ -301,8 +301,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": [
+        "signed": [],
+        "approved": [
           "951602"
         ]
       },
@@ -319,8 +319,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082037",
@@ -336,10 +336,10 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "950703"
         ],
-        "toApprove": [
+        "approved": [
           "950702",
           "950701"
         ]
@@ -362,11 +362,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082032",
           "081420"
         ],
-        "toApprove": [
+        "approved": [
           "950703",
           "950606"
         ]
@@ -382,8 +382,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082030",
@@ -406,8 +406,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082033",
@@ -424,12 +424,12 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "950606",
           "082022",
           "950703"
         ],
-        "toApprove": [
+        "approved": [
           "950702",
           "950605",
           "950701"
@@ -449,12 +449,12 @@
       "optative": false,
       "main": true,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "950309",
           "082027",
           "082028"
         ],
-        "toApprove": [
+        "approved": [
           "082024",
           "951602",
           "082026",
@@ -476,11 +476,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082032",
           "950704"
         ],
-        "toApprove": [
+        "approved": [
           "950703"
         ]
       },
@@ -499,13 +499,13 @@
       "optative": false,
       "main": true,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082038",
           "082031",
           "082033",
           "950310"
         ],
-        "toApprove": [
+        "approved": [
           "951601",
           "951604",
           "950704",
@@ -528,11 +528,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082021",
           "082020"
         ],
-        "toApprove": []
+        "approved": []
       },
       "dependents": [
         "082033",
@@ -550,8 +550,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082031",
@@ -571,8 +571,8 @@
       "optative": false,
       "main": true,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "950310",
@@ -592,12 +592,12 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082025",
           "082026",
           "082024"
         ],
-        "toApprove": [
+        "approved": [
           "082021",
           "082020",
           "082023"
@@ -617,11 +617,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082029",
           "082027"
         ],
-        "toApprove": [
+        "approved": [
           "082020",
           "082022",
           "950606",
@@ -642,12 +642,12 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082041",
           "082034",
           "082033"
         ],
-        "toApprove": [
+        "approved": [
           "950704",
           "950309",
           "082028",
@@ -666,11 +666,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082032",
           "950704"
         ],
-        "toApprove": [
+        "approved": [
           "950703"
         ]
       },
@@ -688,11 +688,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082021",
           "082020"
         ],
-        "toApprove": []
+        "approved": []
       },
       "dependents": [
         "082030",
@@ -708,11 +708,11 @@
       "optative": false,
       "main": true,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082023",
           "082021"
         ],
-        "toApprove": []
+        "approved": []
       },
       "dependents": [
         "082033",
@@ -732,12 +732,12 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "950704",
           "082028",
           "082030"
         ],
-        "toApprove": [
+        "approved": [
           "082024",
           "082025",
           "082026"
@@ -756,8 +756,8 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [],
-        "toApprove": []
+        "signed": [],
+        "approved": []
       },
       "dependents": [
         "082036"
@@ -772,11 +772,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082034",
           "082033"
         ],
-        "toApprove": [
+        "approved": [
           "082032",
           "950309",
           "950704",
@@ -795,11 +795,11 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082041",
           "082034"
         ],
-        "toApprove": [
+        "approved": [
           "082032",
           "082028",
           "950704"
@@ -816,11 +816,11 @@
       "optative": false,
       "main": true,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082026",
           "082024"
         ],
-        "toApprove": [
+        "approved": [
           "082021",
           "082023",
           "082020"
@@ -844,12 +844,12 @@
       "optative": false,
       "main": false,
       "dependencies": {
-        "toSign": [
+        "signed": [
           "082023",
           "082021",
           "082020"
         ],
-        "toApprove": []
+        "approved": []
       },
       "dependents": [
         "082037",
