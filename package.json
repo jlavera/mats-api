@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "sh ./tasks/build.sh",
+    "dist": "babel assets config scripts src -d dist",
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
     "seed": "babel-node scripts/seed",
