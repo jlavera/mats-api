@@ -9,9 +9,8 @@ const ENV  = process.env.NODE_ENV || 'development';
 // ---
 
 module.exports = {
-  neo4j: {
-    uri:      'bolt://localhost:7687',
-    username: 'neo4j',
-    password: 'mats'
-  }
+  express: {
+    host: '0.0.0.0',
+    port: _.get(process.env, 'PORT', 3000)
+  },
 };
