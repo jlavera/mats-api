@@ -5,6 +5,7 @@ import errors   from 'http-errors';
 // ---
 
 module.exports = function usersService(
+  careersService,
   container,
   hashingService,
   usersRepository
@@ -13,7 +14,11 @@ module.exports = function usersService(
     createUser,
     del,
     get,
-    getAll
+    getAll,
+
+    signed,
+    approved,
+    pending
   };
 
   // ---
@@ -23,25 +28,21 @@ module.exports = function usersService(
    *
    * @returns {Promise}
    */
-  function createUser(context, username, password) {
-    if (!username || !password) {
-      return bluebird.reject(new errors.BadRequest('Nombre de usuario y contraseña no pueden ser vacíos.'));
+  function createUser(context, code, password) {
+    if (!code || !password) {
+      return bluebird.reject(new errors.BadRequest('Legajo y contraseña no pueden estar vacíos.'));
     }
 
-    return usersRepository.get(username)
+    return usersRepository.get(context, code)
       .then(user => {
         if (!_.isEmpty(user)) {
-          return bluebird.reject(new errors.Conflict('El nombre de usuario está tomado.'));
+          return bluebird.reject(new errors.Conflict('El legajo ya fue usado.'));
         }
 
         return hashingService.hash(password);
       })
-      .tap(hashedPassword => {
-        return usersRepository.createUser(username, hashedPassword);
-      })
-      .then(() => {
-        return container.get('authenticationService').createToken(context, username, password);
-      })
+      .then(hashedPassword => usersRepository.createUser(context, code, hashedPassword))
+      .then(() => ({}))
     ;
   }
 
@@ -50,8 +51,8 @@ module.exports = function usersService(
    *
    * @returns {Promise}
    */
-  function del(context, username) {
-    return usersRepository.del(username);
+  function del(context, code) {
+    return usersRepository.del(context, code);
   }
 
   /**
@@ -59,9 +60,10 @@ module.exports = function usersService(
    *
    * @returns {Promise}
    */
-  function get(context, username, withPassword) {
-    return usersRepository.get(username, withPassword)
+  function get(context, code, withPassword) {
+    return usersRepository.get(context, code, !!withPassword)
       .then(user => {
+
         if (!user) {
           return bluebird.reject(new errors.NotFound('Usuario'));
         }
@@ -78,5 +80,46 @@ module.exports = function usersService(
    */
   function getAll(context) {
     return usersRepository.getAll();
+  }
+
+  function signed(context, userCode, codes) {
+    return careersService.getCoursesByCode(context, codes)
+      .tap(checkExistingCodes.bind(null, codes))
+      .then(() => usersRepository.removeFromApproved(context, userCode, codes))
+      .then(() => usersRepository.addToSigned(context, userCode, codes))
+    ;
+  }
+
+  function approved(context, userCode, codes) {
+    return careersService.getCoursesByCode(context, codes)
+      .tap(checkExistingCodes.bind(null, codes))
+      .then(() => usersRepository.removeFromSigned(context, userCode, codes))
+      .then(() => usersRepository.addToApproved(context, userCode, codes))
+    ;
+  }
+
+  function pending(context, userCode, codes) {
+    return careersService.getCoursesByCode(context, codes)
+      .tap(checkExistingCodes.bind(null, codes))
+      .then(() => usersRepository.removeFromSigned(context, userCode, codes))
+      .then(() => usersRepository.removeFromApproved(context, userCode, codes))
+    ;
+  }
+
+  // ---
+
+  function checkExistingCodes(codes, coursesFound) {
+    const courses = [];
+
+    coursesFound.forEach(course => {
+      courses.push(course.code);
+    });
+
+    // If any code is not found as course => not found
+    codes.forEach(code => {
+      if (courses.indexOf(code) === -1) {
+        throw new errors.NotFound(`Materia ${code}`);
+      }
+    });
   }
 };

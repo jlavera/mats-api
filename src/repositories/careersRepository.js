@@ -4,13 +4,14 @@ import bluebird from 'bluebird';
 // ---
 
 module.exports = function careersRepository(
-  neo4j
+  mongoDb
 ) {
+  const collection = 'careers';
+
   return {
     get,
     getAll,
-    getReverseTree,
-    getTree
+    getCoursesByCode
   };
 
   // ---
@@ -21,7 +22,7 @@ module.exports = function careersRepository(
    * @returns {Promise}
    */
   function get(code) {
-    return neo4j.runSingle('MATCH (career:Career {code: {code}}) RETURN career', {code: code});
+    return mongoDb.runOne(collection, { code: 'K' }, { _id: 0 });
   }
 
   /**
@@ -30,38 +31,24 @@ module.exports = function careersRepository(
    * @returns {Promise}
    */
   function getAll() {
-    return neo4j.runMultiple('MATCH (career:Career) RETURN career');
+    return mongoDb.runMultiple(collection, {}, { _id: 0, code: 1 });
   }
 
-  /**
-   * Get
-   *
-   * @returns {Promise}
-   */
-  function getReverseTree(code) {
-    return neo4j.runMultiple(`
-      MATCH
-      	(c1:Course)-[:PRESENT_IN]->(Career {code: {code}}),
-      	(c2)-[d:DEPENDS_ON]->(c1)
-      RETURN c1.code as code, collect({type: d.requirement, code: c2.code}) as dependents;`,
-      {code: code},
-      item => _.zipObject(item.keys, item._fields)
-    );
-  }
-
-  /**
-   * Get
-   *
-   * @returns {Promise}
-   */
-  function getTree(code) {
-    return neo4j.runMultiple(`
-      MATCH
-      	(c1:Course)-[:PRESENT_IN]->(Career {code: {code}}),
-      	(c1)-[d:DEPENDS_ON]->(c2)
-      RETURN c1.code as code, collect({type: d.requirement, code: c2.code}) as dependencies;`,
-      {code: code},
-      item => _.zipObject(item.keys, item._fields)
-    );
+  function getCoursesByCode(context, coursesCodes) {
+    return mongoDb.run(db => {
+      return db.collection(collection).aggregate([{
+          $unwind: '$courses'
+        }, {
+          $match: {
+            'courses.code': {
+              $in: coursesCodes
+            }
+          }
+        }])
+      .toArray();
+    })
+    .map(doc => {
+      return doc.courses;
+    });
   }
 };

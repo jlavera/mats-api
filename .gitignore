@@ -14,7 +14,7 @@ config/local.js
 dist/bundle.js
 dist
 .idea/
-
+package-lock.json
 # WEB
 
 ### Linux ###

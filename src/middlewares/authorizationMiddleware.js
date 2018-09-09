@@ -26,6 +26,7 @@ module.exports = function authorizationMiddleware(
   function onlyAdmin(req, res, next) {
     return validateToken(req)
       .then(() => {
+        console.log(req.context.token);
         if (req.context.token.role !== constants.roles.admin) {
           return bluebird.reject(new errors.Unauthorized());
         }

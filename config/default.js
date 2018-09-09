@@ -38,10 +38,9 @@ module.exports = {
     }
   },
 
-  neo4j: {
-    uri:      'bolt://hobby-lgfhfaeefcomgbkeafoejnnl.dbs.graphenedb.com:24786',
-    username: 'careersdb',
-    password: 'CsIrxOv1MXT2DLmVxde8'
+  mongoDb: {
+    uri:    'mongodb://localhost:27017',
+    dbName: 'mats'
   },
 
   newRelic: {
@@ -52,7 +51,7 @@ module.exports = {
   },
 
   auth: {
-    secret:     '',
+    secret:     'kekret',
     expiresIn:  36000,
     saltRounds: 10
   }

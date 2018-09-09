@@ -9,8 +9,7 @@ module.exports = function careersService(
   return {
     get,
     getAll,
-    getReverseTree,
-    getTree
+    getCoursesByCode
   };
 
   // ---
@@ -41,21 +40,7 @@ module.exports = function careersService(
     return careersRepository.getAll();
   }
 
-  /**
-   * Retrieves the reversed dependency tree of a career
-   *
-   * @returns {Promise}
-   */
-  function getReverseTree(context, careerCode) {
-    return careersRepository.getReverseTree(careerCode);
-  }
-
-  /**
-   * Retrieves the dependency tree of a career
-   *
-   * @returns {Promise}
-   */
-  function getTree(context, careerCode) {
-    return careersRepository.getTree(careerCode);
+  function getCoursesByCode(context, coursesCodes) {
+    return careersRepository.getCoursesByCode(context, coursesCodes);
   }
 };

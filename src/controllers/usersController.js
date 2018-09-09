@@ -9,7 +9,11 @@ module.exports = function usersController(
     createUser,
     del,
     get,
-    getAll
+    getAll,
+
+    signed,
+    approved,
+    pending
   });
 
   // ---
@@ -20,8 +24,8 @@ module.exports = function usersController(
    * @returns {Promise}
    */
   function createUser(req, res) {
-    return usersService.createUser(req.context, '' + req.params.username, '' + req.body.password)
-      .then(response => res.status(201).json(response))
+    return usersService.createUser(req.context, +req.body.code, '' + req.body.password)
+      .then(() => res.status(201).json())
     ;
   }
 
@@ -31,7 +35,7 @@ module.exports = function usersController(
    * @returns {Promise}
    */
   function del(req, res) {
-    return usersService.del(req.context, '' + req.params.username)
+    return usersService.del(req.context, +req.params.code)
       .then(() => res.status(204).json())
     ;
   }
@@ -42,7 +46,7 @@ module.exports = function usersController(
    * @returns {Promise}
    */
   function get(req, res) {
-    return usersService.get(req.context, '' + req.params.username, false)
+    return usersService.get(req.context, +req.params.code)
       .then(response => res.json(response))
     ;
   }
@@ -54,6 +58,25 @@ module.exports = function usersController(
    */
   function getAll(req, res) {
     return usersService.getAll(req.context)
+      .then(response => res.json(response))
+    ;
+  }
+
+  function signed(req, res) {
+    return usersService.signed(req.context, +req.params.code, req.body)
+      .then(response => res.json(response))
+    ;
+  }
+
+
+  function approved(req, res) {
+    return usersService.approved(req.context, +req.params.code, req.body)
+      .then(response => res.json(response))
+    ;
+  }
+
+  function pending(req, res) {
+    return usersService.pending(req.context, +req.params.code, req.body)
       .then(response => res.json(response))
     ;
   }
