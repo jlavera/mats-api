@@ -9,9 +9,7 @@ module.exports = function careersService(
   return {
     get,
     getAll,
-    getCourses,
-    getCoursesByCode,
-    getOptionals
+    getCoursesByCode
   };
 
   // ---
@@ -42,29 +40,7 @@ module.exports = function careersService(
     return careersRepository.getAll();
   }
 
-  /**
-   * Retrieves courses for a career.
-   *
-   * @returns {Promise}
-   */
-  function getCourses(context, careerCode) {
-    return get(context, careerCode)
-      .then(career => career.courses)
-    ;
-  }
-
   function getCoursesByCode(context, coursesCodes) {
     return careersRepository.getCoursesByCode(context, coursesCodes);
-  }
-
-  /**
-   * Retrieves optional courses for a career.
-   *
-   * @returns {Promise}
-   */
-  function getOptionals(context, careerCode) {
-    return get(context, careerCode)
-      .then(career => career.optionals)
-    ;
   }
 };

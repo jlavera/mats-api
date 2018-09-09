@@ -40,8 +40,6 @@ module.exports = function apiV1Router(
     // Static endpoints
     .get('/careers',                       authorizationMiddleware.anonymous, careersController.getAll)
     .get('/careers/:careerCode',           authorizationMiddleware.anonymous, careersController.get)
-    .get('/careers/:careerCode/courses',   authorizationMiddleware.anonymous, careersController.getCourses)
-    .get('/careers/:careerCode/optionals', authorizationMiddleware.anonymous, careersController.getOptionals)
 
     // Users endpoints
     .get(   '/users',       authorizationMiddleware.onlyAdmin, usersController.getAll)

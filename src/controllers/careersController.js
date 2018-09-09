@@ -7,9 +7,7 @@ module.exports = function careersController(
 ) {
   return expressify({
     get,
-    getAll,
-    getCourses,
-    getOptionals
+    getAll
   });
 
   // ---
@@ -32,28 +30,6 @@ module.exports = function careersController(
    */
   function getAll(req, res) {
     return careersService.getAll(req.context)
-      .then(response => res.json(response))
-    ;
-  }
-
-  /**
-   * Retrieves courses for a career.
-   *
-   * @returns {Promise}
-   */
-  function getCourses(req, res) {
-    return careersService.getCourses(req.context, '' + req.params.careerCode)
-      .then(response => res.json(response))
-    ;
-  }
-
-  /**
-   * Retrieves optional courses for a career.
-   *
-   * @returns {Promise}
-   */
-  function getOptionals(req, res) {
-    return careersService.getOptionals(req.context, '' + req.params.careerCode)
       .then(response => res.json(response))
     ;
   }
