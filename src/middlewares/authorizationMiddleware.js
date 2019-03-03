@@ -1,10 +1,10 @@
 const bluebird = require('bluebird');
 const errors   = require('http-errors');
+const jwt      = require('jsonwebtoken');
 
 module.exports = function authorizationMiddleware(
   config,
-  constants,
-  jwt
+  constants
 ) {
   return {
     anonymous,
@@ -26,6 +26,7 @@ module.exports = function authorizationMiddleware(
   function onlyAdmin(req, res, next) {
     return validateToken(req)
       .then(() => {
+        console.log(req.context.token);
         if (req.context.token.role !== constants.roles.admin) {
           return bluebird.reject(new errors.Unauthorized());
         }
@@ -46,17 +47,16 @@ module.exports = function authorizationMiddleware(
   }
 
   function validateToken(req) {
-    const header = req.headers.authorization;
+    // get token from Authorization header
+    const token = req.headers.authorization;
 
-    if (!header) {
+    // if there is no token, return an error
+    if (!token) {
       return bluebird.reject(new errors.Forbidden('No se encuentra el token'));
     }
 
-    const [prefix, token] = header.split(' ');
-    if (prefix.toLowerCase() !== 'bearer' || !token) {
-      return bluebird.reject(new errors.BadRequest('Token inválido'));
-    }
-
+    // decode token
+    // verifies secret and checks expiration
     return bluebird.promisify(jwt.verify, jwt)(token, config.auth.secret, {ignoreNotBefore: true})
       .then(decoded => {
         // if everything is good, save to request context for use in other routes

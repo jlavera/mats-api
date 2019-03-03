@@ -18,7 +18,6 @@ function createContainer() {
   entries.forEach(entry => container.load(path.join(__dirname, entry)));
 
   container.register('container', container);
-  container.register('jwt', require('jsonwebtoken'));
 
   return container;
 }

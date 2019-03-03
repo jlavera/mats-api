@@ -1,10 +1,10 @@
 const bluebird = require('bluebird');
 const errors   = require('http-errors');
+const jwt      = require('jsonwebtoken');
 
 module.exports = function authenticationService(
   config,
   hashingService,
-  jwt,
   usersService
 ) {
   return {
