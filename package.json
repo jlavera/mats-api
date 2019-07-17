@@ -14,7 +14,7 @@
     "start:aws": "export NODE_ENV=aws && node .",
     "start:watch": "babel-watch .",
     "test": "export NODE_ENV=test && npm run lint && babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- --recursive",
-    "test:app": "export NODE_ENV=test && babel-node ./node_modules/.bin/_mocha --recursive",
+    "test:app": "export NODE_ENV=test && babel-node ./node_modules/.bin/_mocha --recursive --watch",
     "preversion": "npm test && npm shrinkwrap",
     "postversion": "git push origin HEAD && git push origin $(git describe --tags)"
   },

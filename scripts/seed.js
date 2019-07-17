@@ -13,18 +13,18 @@ const users = require('./info/users');
 Promise.resolve()
 
   // Clean
-  .then(() => mongoDb.run(db => db.collection('careers').remove({})))
-  .then(() => mongoDb.run(db => db.collection('users').remove({})))
+  .then(() => mongoDb.run(db => db.collection('careers').deleteMany({})))
+  .then(() => mongoDb.run(db => db.collection('users').deleteMany({})))
 
   // Create indexes
   .then(() => mongoDb.run(db => db.collection('careers').createIndex({ 'courses.code': 1 })))
   .then(() => mongoDb.run(db => db.collection('users').createIndex({ code: 1 })))
 
   // Inserts
-  .then(() => mongoDb.run(db => db.collection('careers').insert(tree)))
+  .then(() => mongoDb.run(db => db.collection('careers').insertMany(tree)))
   .then(() => console.log('Done careers'))
 
-  .then(() => mongoDb.run(db => db.collection('users').insert(users)))
+  .then(() => mongoDb.run(db => db.collection('users').insertMany(users)))
   .then(() => console.log('Done users'))
 
   .then(() => {

@@ -43,7 +43,7 @@ module.exports = function apiV1Router(
 
     // Users endpoints
     .get(   '/users',       authorizationMiddleware.onlyAdmin, usersController.getAll)
-    .post(  '/users/',      authorizationMiddleware.anonymous, usersController.createUser)
+    .post(  '/users',       authorizationMiddleware.anonymous, usersController.createUser)
     .get(   '/users/:code', authorizationMiddleware.onlyUser,  usersController.get)
     .delete('/users/:code', authorizationMiddleware.onlyUser,  usersController.del)
 
